@@ -1,1 +1,51 @@
 @import "tailwindcss";
+
+@theme {
+	--color-primary-50: oklch(98.77% 0.014 92.98);
+	--color-primary-100: oklch(97.01% 0.033 91.67);
+	--color-primary-200: oklch(93.94% 0.062 90.16);
+	--color-primary-300: oklch(91.43% 0.088 90.36);
+	--color-primary-400: oklch(88.74% 0.115 90.39);
+	--color-primary-500: oklch(85.79% 0.136 88.42);
+	--color-primary-600: oklch(81.47% 0.162 85.65);
+	--color-primary-700: oklch(68.1% 0.137 84.27);
+	--color-primary-800: oklch(50.03% 0.1 85.32);
+	--color-primary-900: oklch(31.37% 0.061 88.05);
+	--color-primary-950: oklch(21.87% 0.041 88.73);
+
+	--color-secondary-50: oklch(99.38% 0.001 106.42);
+	--color-secondary-100: oklch(98.65% 0.004 121.56);
+	--color-secondary-200: oklch(97.6% 0.008 121.63);
+	--color-secondary-300: oklch(96.24% 0.012 121.7);
+	--color-secondary-400: oklch(94.91% 0.015 123.05);
+	--color-secondary-500: oklch(93.85% 0.019 122.84);
+	--color-secondary-600: oklch(82.4% 0.056 123.31);
+	--color-secondary-700: oklch(70.75% 0.094 124.4);
+	--color-secondary-800: oklch(53.79% 0.078 124.57);
+	--color-secondary-900: oklch(33.64% 0.044 124.3);
+	--color-secondary-950: oklch(22.25% 0.023 123.23);
+
+	--color-tertiary-50: oklch(98.63% 0.002 165.08);
+	--color-tertiary-100: oklch(97.73% 0.002 165.08);
+	--color-tertiary-200: oklch(95.05% 0.007 160.07);
+	--color-tertiary-300: oklch(92.79% 0.008 168.74);
+	--color-tertiary-400: oklch(90.68% 0.013 164.77);
+	--color-tertiary-500: oklch(88.06% 0.015 164.68);
+	--color-tertiary-600: oklch(75.77% 0.031 164.01);
+	--color-tertiary-700: oklch(62.69% 0.049 163.55);
+	--color-tertiary-800: oklch(46.57% 0.035 163);
+	--color-tertiary-900: oklch(30.28% 0.022 161.26);
+	--color-tertiary-950: oklch(19.72% 0.011 163.6);
+
+	--color-surface-50: oklch(96.19% 0.017 286.07);
+	--color-surface-100: oklch(92.37% 0.035 285.69);
+	--color-surface-200: oklch(83.52% 0.077 283.79);
+	--color-surface-300: oklch(75.8% 0.116 282.18);
+	--color-surface-400: oklch(68.27% 0.155 280.64);
+	--color-surface-500: oklch(60.21% 0.198 278.02);
+	--color-surface-600: oklch(46.94% 0.27 269.09);
+	--color-surface-700: oklch(38.15% 0.246 266.1);
+	--color-surface-800: oklch(28.37% 0.177 266.95);
+	--color-surface-900: oklch(18.79% 0.108 268.98);
+	--color-surface-950: oklch(13.09% 0.065 272.75);
+}
