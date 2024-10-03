@@ -1,0 +1,6 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"welcome": "Welcome",
+	"hero_title": "Welcome at gentiluomo",
+	"hero_subtitle": "Subtitle"
+}
