@@ -54,7 +54,7 @@
 		transition:fade
 	>
 		<button
-			class="bg-surface-950 text-primary-300 focus-visible:text-highlight-300 hover:text-highlight-300 absolute -top-3 -right-3 rounded-full"
+			class="bg-surface-950 text-primary-300 focus-visible:text-highlight-300 hover:text-highlight-300 absolute -top-3 -left-3 rounded-full"
 			type="button"
 			use:melt={$close}
 		>
