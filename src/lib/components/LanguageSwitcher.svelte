@@ -35,6 +35,7 @@
 	}
 </script>
 
+<!-- BUTTON TO TOGGLE LANGUAGE SWITCHER -->
 <button
 	class="text-highlight-300 flex items-center gap-x-2 rounded-md border p-1 {$open
 		? 'border-primary-300 bg-primary-300/50'
@@ -47,12 +48,14 @@
 	<span class="sr-only">{m.change_language()}</span>
 </button>
 
+<!-- LANGUAGE SWITCHER -->
 {#if $open}
 	<div
 		class="border-primary-300 bg-surface-500/50 relative rounded-md border bg-inherit p-4 backdrop-blur-lg"
 		use:melt={$content}
 		transition:fade
 	>
+		<!-- BUTTON TO CLOSE LANGUAGE SWITCHER -->
 		<button
 			class="bg-surface-950 text-primary-300 focus-visible:text-highlight-300 hover:text-highlight-300 absolute -top-3 -left-3 rounded-full"
 			type="button"
@@ -62,10 +65,13 @@
 			<span class="sr-only">{m.close_popover()}</span>
 		</button>
 
+		<!-- POPOVER ARROW -->
 		<div
 			class="border-primary-300 !bg-primary-300 border"
 			use:melt={$arrow}
 		></div>
+
+		<!-- LIST OF AVAILABLE LANGUAGES -->
 		<ul class="grid gap-y-4">
 			{#each availableLanguageTags as lang}
 				<li>
