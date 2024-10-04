@@ -2,5 +2,9 @@
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"welcome": "Willkommen",
 	"hero_title": "Willkommen bei gentiluomo",
-	"hero_subtitle": "Subtitle"
+	"hero_subtitle": "Subtitle",
+	"german_language": "Deutsch",
+	"english_language": "Englisch",
+	"close_popover": "Popover schließen",
+	"change_language": "Sprache wechseln"
 }

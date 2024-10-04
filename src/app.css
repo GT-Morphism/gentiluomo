@@ -61,3 +61,7 @@
 	--color-highlight-900: oklch(33.19% 0.047 141.28);
 	--color-highlight-950: oklch(21.36% 0.025 139.95);
 }
+
+@utility container {
+	@apply mx-auto w-full max-w-7xl px-4;
+}
