@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as m from "$lib/paraglide/messages";
+	const { data } = $props();
 </script>
 
-<h1>{m.hero_title()}</h1>
-<p>{m.hero_subtitle()}</p>
+<h1>{data.headline}</h1>
+<p>{data.subheadline}</p>

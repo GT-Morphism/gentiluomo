@@ -43,6 +43,7 @@
 	},
 	"packageManager": "pnpm@9.14.2",
 	"dependencies": {
+		"@directus/sdk": "^18.0.0",
 		"@inlang/paraglide-sveltekit": "0.12.1",
 		"lucide-svelte": "^0.462.0"
 	}
