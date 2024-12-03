@@ -53,7 +53,7 @@ Im derzeitigen Stand des Projekts wird unsere Kommunikation »oldschool« stattf
 mir also einen Brief; einen digitalen Brief, natürlich.
 
 Um ehrlich zu sein: Das Projekt ist momentan nicht mehr als dieses Repo. Wenn Du aber jetzt schon Interesse
-an einem Austausch mit mir hast, dann schreibe mir gerne über [LinkedIn](www.linkedin.com/in/gentiluomodotdev).
+an einem Austausch mit mir hast, dann schreibe mir gerne über [LinkedIn](https://linkedin.com/in/gentiluomodotdev).
 
 > [!NOTE]
 > *Etwas Eigenwerbung, wenn Du gestattest*
@@ -85,4 +85,4 @@ in meinem Kopf in Code umgesetzt habe. Bis dahin: please hold the line, once aga
 > *Gibst Du Feedback*
 >
 > Bro, wenn Dir irgendwas auffällt, das ich verbessern kann, lasse mich das gerne wissen. Verwende dazu die Möglichkeiten
-> auf GitHub oder schreibe mir auf [LinkedIn](www.linkedin.com/in/gentiluomodotdev).
+> auf GitHub oder schreibe mir auf [LinkedIn](https://linkedin.com/in/gentiluomodotdev).
