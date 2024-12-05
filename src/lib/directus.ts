@@ -1,9 +1,11 @@
 import { createDirectus, rest } from "@directus/sdk";
-import { DIRECTUS_API_URL } from "$env/static/private";
+import { PUBLIC_DIRECTUS_API_URL } from "$env/static/public";
 
 function getDirectusInstance(fetch?: typeof globalThis.fetch) {
 	const options = fetch ? { globals: { fetch } } : {};
-	const directus = createDirectus(DIRECTUS_API_URL, options).with(rest());
+	const directus = createDirectus(PUBLIC_DIRECTUS_API_URL, options).with(
+		rest(),
+	);
 	return directus;
 }
 
