@@ -1,6 +1,6 @@
 import type { PageServerLoad } from "./$types";
 import getDirectusInstance from "$lib/directus";
-import { readSingleton } from "@directus/sdk";
+import { readSingleton, readFile } from "@directus/sdk";
 import { languageTag } from "$lib/paraglide/runtime";
 
 export const load: PageServerLoad = async ({ fetch, depends }) => {
@@ -8,6 +8,7 @@ export const load: PageServerLoad = async ({ fetch, depends }) => {
 	const directus = getDirectusInstance(fetch);
 	const homepage = await directus.request<{
 		date_updated: string;
+		hero_image: string;
 		translations: {
 			headline: string;
 			subheadline: string;
@@ -29,6 +30,7 @@ export const load: PageServerLoad = async ({ fetch, depends }) => {
 			},
 			fields: [
 				"date_updated",
+				"hero_image",
 				{
 					translations: ["headline", "subheadline"],
 				},
@@ -36,8 +38,18 @@ export const load: PageServerLoad = async ({ fetch, depends }) => {
 		}),
 	);
 
+	const heroImage = await directus.request<{
+		id: string;
+		description: string;
+	}>(
+		readFile(homepage.hero_image, {
+			fields: ["*"],
+		}),
+	);
+
 	return {
 		headline: homepage.translations[0]?.headline,
 		subheadline: homepage.translations[0]?.subheadline,
+		heroImage,
 	};
 };
