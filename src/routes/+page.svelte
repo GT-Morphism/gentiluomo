@@ -1,11 +1,6 @@
 <script lang="ts">
-	import { PUBLIC_DIRECTUS_API_URL } from "$env/static/public";
-	const { data } = $props();
+	import * as m from "$lib/paraglide/messages";
 </script>
 
-<h1>{data.headline}</h1>
-<p>{data.subheadline}</p>
-<img
-	src="{PUBLIC_DIRECTUS_API_URL}/assets/{data.heroImage.id}?width=400"
-	alt={data.heroImage.description}
-/>
+<h1>{m.hero_title()}</h1>
+<p>{m.hero_subtitle()}</p>
