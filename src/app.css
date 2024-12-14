@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@font-face {
+	font-family: "Geist";
+	src: url("/fonts/Geist[wght].woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Roboto Slab";
+	src: url("/fonts/RobotoSlab[wght].woff2") format("woff2");
+	font-display: swap;
+}
+
 @theme {
 	--color-primary-50: oklch(93.82% 0.023 252.18);
 	--color-primary-100: oklch(86.93% 0.049 251.24);
@@ -64,9 +76,18 @@
 
 @utility container {
 	@apply mx-auto w-full max-w-7xl px-4;
+	--default-font-family: "Geist", sans-serif;
+	--font-heading: "Roboto Slab", sans-serif;
+
 }
 
 @layer base {
+	:where(h1, h2, h3, h4, h5, h6) {
+		@apply font-heading text-balance;
+	}
+	:where(p) {
+		@apply text-pretty;
+	}
 	:where(a, button) {
 		@apply focus-visible:ring-tertiary-500 focus-visible:ring focus-visible:ring-offset-2 focus-visible:outline-none;
 	}
