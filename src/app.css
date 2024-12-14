@@ -109,6 +109,56 @@
 	--text-step-3xl: clamp(2.0736rem, 1.5384rem + 2.6758vw, 3.9467rem);
 	--text-step-4xl: clamp(2.4883rem, 1.6962rem + 3.9608vw, 5.2609rem);
 
+	--radius-primary: 0.5rem;
+
+	--animate-rubberBand: rubberBand 1s ease-in-out;
+	--animate-smoothWiggleAndZoom: smoothWiggleAndZoom 500ms ease-in-out;
+
+	@keyframes rubberBand {
+		from {
+			transform: scale3d(1, 1, 1);
+		}
+		30% {
+			transform: scale3d(1.25, 0.75, 1);
+		}
+		40% {
+			transform: scale3d(0.75, 1.25, 1);
+		}
+		50% {
+			transform: scale3d(1.15, 0.85, 1);
+		}
+		65% {
+			transform: scale3d(0.95, 1.05, 1);
+		}
+		75% {
+			transform: scale3d(1.05, 0.95, 1);
+		}
+		to {
+			transform: scale3d(1, 1, 1);
+		}
+	}
+
+	@keyframes smoothWiggleAndZoom {
+		0%,
+		100% {
+			transform: rotate(0deg) scale(1);
+		}
+		25% {
+			transform: rotate(-10deg) scale(1.05);
+		}
+		75% {
+			transform: rotate(10deg) scale(1.05);
+		}
+	}
+}
+
+@utility wrapper {
+	width: min(1440px, 100% - 2rem);
+	margin-inline: auto;
+}
+
+@utility animated-underline {
+	@apply relative after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:bg-white after:content-[""] hover:after:scale-x-100 after:motion-safe:transition-transform after:motion-safe:duration-300;
 }
 
 @layer base {
@@ -131,7 +181,17 @@
 	:where(p) {
 		@apply text-pretty;
 	}
+	:where(button) {
+		@apply cursor-pointer;
+	}
 	:where(a, button) {
 		@apply focus-visible:ring-tertiary-500 focus-visible:ring focus-visible:ring-offset-2 focus-visible:outline-none;
+	kbd {
+		@apply bg-primary-800 ring-primary-500 inline-grid h-5 min-w-5 place-items-center rounded px-1 text-[11px] font-medium ring ring-inset;
+
+		&:has(+ kbd) {
+			@apply me-0.5;
+		}
 	}
+
 }

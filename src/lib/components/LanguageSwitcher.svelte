@@ -9,17 +9,24 @@
 	import { fade } from "svelte/transition";
 	import { i18n } from "$lib/i18n";
 
-	import { createPopover, melt } from "@melt-ui/svelte";
+	import { createPopover, createTooltip, melt } from "@melt-ui/svelte";
+
+	import { CONFIG_TOOLTIP_WITH_DELAY } from "$lib/constants/configMeltElements";
 
 	const {
-		elements: { trigger, content, arrow, close },
+		elements: { trigger, content, arrow },
 		states: { open },
 	} = createPopover({
 		forceVisible: true,
 	});
 
+	const {
+		elements: { trigger: tooltipTrigger, content: tooltipContent },
+		states: { open: tooltipOpen },
+	} = createTooltip(CONFIG_TOOLTIP_WITH_DELAY);
+
 	import Globe from "lucide-svelte/icons/globe";
-	import CircleX from "lucide-svelte/icons/circle-x";
+	import Tooltip from "$lib/components/Tooltip.svelte";
 
 	const currentPathWithoutLanguage = $derived(i18n.route($page.url.pathname));
 
@@ -33,58 +40,68 @@
 				return m.german_language();
 		}
 	}
+
+	const openLanguageSwitcherClasses =
+		"bg-primary-800/50 text-primary-100 border-primary-500";
 </script>
 
-<!-- BUTTON TO TOGGLE LANGUAGE SWITCHER -->
+<svelte:window
+	onkeydown={(event) => {
+		if (event.shiftKey && event.key.toLowerCase() === "l") {
+			$open = !$open;
+		}
+	}}
+/>
+
+<!-- BUTTON TO TOGGLE LANGUAGE SWITCHER (AND TOOLTIP SHOWING SHORTCUT) -->
 <button
-	class="text-highlight-300 flex items-center gap-x-2 rounded-md border p-1 {$open
-		? 'border-primary-300 bg-primary-300/50'
-		: 'border-highlight-300 bg-primary-500/50 hover:bg-primary-300/50 focus-visible:bg-primary-300/50'}"
+	class="rounded-primary text-step-sm flex items-center gap-x-2 border p-1 {$open
+		? openLanguageSwitcherClasses
+		: 'hover:bg-primary-500/50 focus-visible:bg-primary-500/50 motion-safe:transition-colors motion-safe:duration-300'}"
 	type="button"
 	use:melt={$trigger}
+	use:melt={$tooltipTrigger}
 >
 	<span>{languageTag()}</span>
-	<Globe />
+	<Globe class="h-icon w-icon" />
 	<span class="sr-only">{m.change_language()}</span>
 </button>
+
+<!-- TOOLTIP WITH SHORTCUT -->
+{#if $tooltipOpen && !$open}
+	<Tooltip contentBuilderStore={tooltipContent}>
+		{m.change_language()}
+		<span class="flex items-center gap-x-0.5">
+			<kbd>shift</kbd>
+			<kbd>l</kbd>
+		</span>
+	</Tooltip>
+{/if}
 
 <!-- LANGUAGE SWITCHER -->
 {#if $open}
 	<div
-		class="border-primary-300 bg-surface-500/50 relative rounded-md border bg-inherit p-4 backdrop-blur-lg"
+		class="rounded-primary text-step-sm border-primary-500 bg-surface-900 border bg-inherit px-2 py-3"
 		use:melt={$content}
 		transition:fade
 	>
-		<!-- BUTTON TO CLOSE LANGUAGE SWITCHER -->
-		<button
-			class="bg-surface-950 text-primary-300 focus-visible:text-highlight-300 hover:text-highlight-300 absolute -top-3 -left-3 rounded-full"
-			type="button"
-			use:melt={$close}
-		>
-			<CircleX />
-			<span class="sr-only">{m.close_popover()}</span>
-		</button>
-
 		<!-- POPOVER ARROW -->
-		<div
-			class="border-primary-300 !bg-primary-300 border"
-			use:melt={$arrow}
-		></div>
+		<div class="border-primary-500 border" use:melt={$arrow}></div>
 
 		<!-- LIST OF AVAILABLE LANGUAGES -->
-		<ul class="grid gap-y-4">
+		<ul class="grid gap-y-2">
 			{#each availableLanguageTags as lang}
 				<li>
 					<a
-						class="block rounded-md border p-1 {lang === languageTag()
-							? 'bg-primary-300/50 border-primary-300'
-							: 'hover:bg-primary-300/50 focus-visible:bg-primary-300/50'}"
+						class="rounded-primary block border p-1 {lang === languageTag()
+							? openLanguageSwitcherClasses
+							: 'hover:bg-primary-500/50 focus-visible:bg-primary-500/50'}"
 						class:cursor-default={lang === languageTag()}
 						href={currentPathWithoutLanguage}
 						hreflang={lang}
 					>
 						<span>{lang}</span>
-						<span class="text-sm">({getLanguageFromCode(lang)})</span>
+						<span class="text-step-xs">({getLanguageFromCode(lang)})</span>
 					</a>
 				</li>
 			{/each}

@@ -4,20 +4,14 @@
 
 	import "../app.css";
 
-	import Logo from "$lib/components/Logo.svelte";
-	import LanguageSwitcher from "$lib/components/LanguageSwitcher.svelte";
+	import Header from "$lib/components/header/Header.svelte";
 
 	const { children } = $props();
 </script>
 
 <ParaglideJS {i18n}>
-	<header class="flex items-center justify-between pt-8">
-		<div class="max-w-14">
-			<Logo />
-		</div>
+	<Header />
 
-		<LanguageSwitcher />
-	</header>
 
 	<main>
 		{@render children()}
