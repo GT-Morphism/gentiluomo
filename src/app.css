@@ -152,6 +152,8 @@
 	}
 }
 
+@variant section-child (& > section);
+
 @utility wrapper {
 	width: min(1440px, 100% - 2rem);
 	margin-inline: auto;
@@ -181,17 +183,32 @@
 	:where(p) {
 		@apply text-pretty;
 	}
+
 	:where(button) {
 		@apply cursor-pointer;
 	}
+
 	:where(a, button) {
-		@apply focus-visible:ring-tertiary-500 focus-visible:ring focus-visible:ring-offset-2 focus-visible:outline-none;
+		@apply focus-visible:ring-highlight-500 focus-visible:ring-offset-highlight-500 focus-visible:ring focus-visible:ring-offset-2 focus-visible:outline-none;
+	}
+
 	kbd {
-		@apply bg-primary-800 ring-primary-500 inline-grid h-5 min-w-5 place-items-center rounded px-1 text-[11px] font-medium ring ring-inset;
+		--background-color: var(--color-primary-800);
+		--ring-color: var(--color-primary-500);
+
+		&[data-subtle] {
+			--background-color: var(--color-gray-800);
+			--ring-color: var(--color-gray-500);
+		}
+
+		@apply text-step-xs inline-grid h-5 min-w-5 place-items-center rounded bg-[var(--background-color)] px-1 font-medium ring ring-[var(--ring-color)] ring-inset;
 
 		&:has(+ kbd) {
 			@apply me-0.5;
 		}
 	}
 
+	.flow > * + * {
+		margin-block-start: 1.25em;
+	}
 }

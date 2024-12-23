@@ -1,9 +1,7 @@
 <script lang="ts">
 	import * as m from "$lib/paraglide/messages";
 	import { createTooltip, melt } from "@melt-ui/svelte";
-	import defineShortcuts, {
-		type ShortcutConfig,
-	} from "$lib/utils/shortcuts.svelte";
+	import defineShortcuts from "$lib/utils/shortcuts.svelte";
 
 	import IconDiscord from "$lib/components/icons/IconDiscord.svelte";
 	import Search from "lucide-svelte/icons/search";
@@ -11,9 +9,11 @@
 
 	import Logo from "$lib/components/Logo.svelte";
 	import LanguageSwitcher from "$lib/components/LanguageSwitcher.svelte";
+	import CommandPalette from "$lib/components/header/CommandPalette.svelte";
 	import Tooltip from "$lib/components/Tooltip.svelte";
 	import { languageTag } from "$lib/paraglide/runtime";
 	import { CONFIG_TOOLTIP_WITH_DELAY } from "$lib/constants/configMeltElements";
+	import { NAVIGATION_SHORTCUTS } from "$lib/constants/shortcuts";
 
 	const {
 		elements: {
@@ -62,35 +62,7 @@
 	} = createTooltip(CONFIG_TOOLTIP_WITH_DELAY);
 
 	$effect(() => {
-		const headerShortcuts: ShortcutConfig[] = [
-			{
-				href: "/der-gentleman",
-				firstKey: "g",
-				secondKey: "g",
-			},
-			{
-				href: "/der-entwickler",
-				firstKey: "g",
-				secondKey: "e",
-			},
-			{
-				href: "/der-mentor",
-				firstKey: "g",
-				secondKey: "m",
-			},
-			{
-				href: "/die-prinzipien",
-				firstKey: "g",
-				secondKey: "p",
-			},
-			{
-				href: "/kontakt",
-				firstKey: "g",
-				secondKey: "k",
-			},
-		];
-
-		const { mount, unmount } = defineShortcuts(headerShortcuts);
+		const { mount, unmount } = defineShortcuts(NAVIGATION_SHORTCUTS);
 
 		mount();
 
@@ -179,6 +151,7 @@
 
 			<div class="bg-primary-500 min-h-5 w-0.5"></div>
 
+			<CommandPalette />
 			<LanguageSwitcher />
 		</div>
 
@@ -200,7 +173,7 @@
 				arrowBuilderStore={developerArrow}
 			>
 				<span class="flex items-center">
-					<kbd>g</kbd>
+					<kbd>e</kbd>
 					<kbd>e</kbd>
 				</span>
 			</Tooltip>
@@ -212,7 +185,7 @@
 				arrowBuilderStore={mentorArrow}
 			>
 				<span class="flex items-center">
-					<kbd>g</kbd>
+					<kbd>m</kbd>
 					<kbd>m</kbd>
 				</span>
 			</Tooltip>
@@ -224,7 +197,7 @@
 				arrowBuilderStore={principlesArrow}
 			>
 				<span class="flex items-center">
-					<kbd>g</kbd>
+					<kbd>p</kbd>
 					<kbd>p</kbd>
 				</span>
 			</Tooltip>
@@ -244,7 +217,7 @@
 			<Tooltip contentBuilderStore={contactContent}>
 				{m.contact_tooltip_content()}
 				<span class="flex items-center">
-					<kbd>g</kbd>
+					<kbd>k</kbd>
 					<kbd>k</kbd>
 				</span>
 			</Tooltip>
