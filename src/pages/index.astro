@@ -1,10 +1,37 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import ProgressCard from "@components/ProgressCard.vue";
 ---
 
 <BaseLayout
   title="Lass uns endlich Mathematik verstehen"
   description="Lerne in Deiner eigenen Geschwindigkeit"
 >
-  <h1>Welcome</h1>
+  <section class="gap-x-s-m grid grid-cols-[2fr_1fr] items-center">
+    <div class="flow">
+      <h1>
+        Bist Du <span class="text-primary-500 font-bold">cool</span>? Dann lass
+        uns <span class="text-primary-500 font-bold">Mathematik verstehen</span
+        >.
+      </h1>
+      <p>
+        Mathematik ist eine Denkweise, von der Du in <span
+          class="text-primary-500 font-bold"
+          >jeder Lebenssituation profitieren</span
+        > kannst.
+      </p>
+      <div class="gap-x-m-l flex items-center">
+        <a
+          class="border-primary-500 after:bg-primary-500/20 px-s py-2xs relative rounded-md border after:absolute after:inset-0 after:-z-10 after:origin-left after:scale-x-0 after:rounded-md after:content-[''] hover:after:scale-x-100 focus-visible:after:scale-x-100 after:motion-safe:transition-transform after:motion-safe:duration-300"
+          href="/kurs">Ich bin überzeugt</a
+        >
+        <a
+          class="after:bg-secondary-500/20 decoration-secondary-500 relative underline decoration-dashed underline-offset-4 after:absolute after:inset-0 after:-z-10 after:origin-left after:scale-x-0 after:content-[''] hover:decoration-solid hover:after:scale-x-100 focus-visible:decoration-solid focus-visible:after:scale-x-100 after:motion-safe:transition-transform after:motion-safe:duration-300"
+          href="/mathematik-als-denkweise">Hmm… ich bin noch skeptisch</a
+        >
+      </div>
+    </div>
+
+    <ProgressCard />
+  </section>
 </BaseLayout>

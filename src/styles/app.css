@@ -96,6 +96,10 @@
 }
 
 @layer base {
+  ::selection {
+    @apply bg-primary-500 text-surface-950;
+  }
+
   :where(h1, h2, h3, h4, h5, h6) {
     @apply font-heading text-balance;
   }
@@ -122,6 +126,10 @@
 
   :where(a, button) {
     @apply focus-visible:ring-highlight-500 focus-visible:ring-offset-highlight-500 focus-visible:ring focus-visible:ring-offset-2 focus-visible:outline-none;
+  }
+
+  .flow > * + * {
+    margin-block-start: 1.25em;
   }
 }
 
