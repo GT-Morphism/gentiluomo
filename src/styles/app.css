@@ -1,1 +1,126 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist[wght].woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("/fonts/RobotoSlab[wght].woff2") format("woff2");
+  font-display: swap;
+}
+
+@theme {
+  --color-primary-50: oklch(96.94% 0.011 118.02);
+  --color-primary-100: oklch(94.07% 0.023 120.2);
+  --color-primary-200: oklch(88.1% 0.047 120.69);
+  --color-primary-300: oklch(82.08% 0.07 121.27);
+  --color-primary-400: oklch(76.04% 0.094 121.99);
+  --color-primary-500: oklch(69.68% 0.114 123.04); /* #90A955 */
+  --color-primary-600: oklch(59.48% 0.096 122.84);
+  --color-primary-700: oklch(48.49% 0.076 122.74);
+  --color-primary-800: oklch(36.83% 0.055 122.55);
+  --color-primary-900: oklch(24.15% 0.031 122.1);
+  --color-primary-950: oklch(17.13% 0.017 124.76);
+
+  --color-secondary-50: oklch(97.29% 0.011 71.9);
+  --color-secondary-100: oklch(94.66% 0.023 69.6);
+  --color-secondary-200: oklch(90.13% 0.044 69.47);
+  --color-secondary-300: oklch(85.06% 0.068 70.36);
+  --color-secondary-400: oklch(79.78% 0.091 69.74);
+  --color-secondary-500: oklch(75.25% 0.11 67.83); /* #DDA15E */
+  --color-secondary-600: oklch(67.23% 0.134 64.38);
+  --color-secondary-700: oklch(54.86% 0.108 64.45);
+  --color-secondary-800: oklch(41.81% 0.079 66.67);
+  --color-secondary-900: oklch(26.26% 0.044 66.41);
+  --color-secondary-950: oklch(18.16% 0.026 72.85);
+
+  --color-highlight-50: oklch(99.41% 0.011 112.36);
+  --color-highlight-100: oklch(98.82% 0.021 112.56);
+  --color-highlight-200: oklch(97.36% 0.047 111.14);
+  --color-highlight-300: oklch(96.25% 0.067 112.13);
+  --color-highlight-400: oklch(95.05% 0.086 111.49);
+  --color-highlight-500: oklch(93.98% 0.107 112.28); /* #ECF39E */
+  --color-highlight-600: oklch(90.11% 0.168 113.71);
+  --color-highlight-700: oklch(83.34% 0.184 114.85);
+  --color-highlight-800: oklch(61.37% 0.135 115.24);
+  --color-highlight-900: oklch(38.71% 0.082 115.16);
+  --color-highlight-950: oklch(25.04% 0.05 112.9);
+
+  --color-surface-50: oklch(93.99% 0.031 145.33);
+  --color-surface-100: oklch(87.9% 0.058 145.06);
+  --color-surface-200: oklch(76.77% 0.116 144.34);
+  --color-surface-300: oklch(64.59% 0.154 143.54);
+  --color-surface-400: oklch(46.76% 0.107 143.64);
+  --color-surface-500: oklch(25.89% 0.051 143.93); /* #132A13 */
+  --color-surface-600: oklch(23.36% 0.044 144.03);
+  --color-surface-700: oklch(19.57% 0.034 144.15);
+  --color-surface-800: oklch(16.85% 0.026 144.33);
+  --color-surface-900: oklch(11.94% 0.017 144.41);
+  --color-surface-950: oklch(10.01% 0.012 144.61);
+
+  --default-font-family: "Geist", sans-serif;
+  --font-heading: "Roboto Slab", serif;
+
+  /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1440,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --spacing-3xs: clamp(0.25rem, 0.2321rem + 0.0893vw, 0.3125rem);
+  --spacing-2xs: clamp(0.5rem, 0.4643rem + 0.1786vw, 0.625rem);
+  --spacing-xs: clamp(0.75rem, 0.6964rem + 0.2679vw, 0.9375rem);
+  --spacing-s: clamp(1rem, 0.9286rem + 0.3571vw, 1.25rem);
+  --spacing-m: clamp(1.5rem, 1.3929rem + 0.5357vw, 1.875rem);
+  --spacing-l: clamp(2rem, 1.8571rem + 0.7143vw, 2.5rem);
+  --spacing-xl: clamp(3rem, 2.7857rem + 1.0714vw, 3.75rem);
+  --spacing-2xl: clamp(4rem, 3.7143rem + 1.4286vw, 5rem);
+  --spacing-3xl: clamp(6rem, 5.5714rem + 2.1429vw, 7.5rem);
+
+  --spacing-3xs-2xs: clamp(0.25rem, 0.1429rem + 0.5357vw, 0.625rem);
+  --spacing-2xs-xs: clamp(0.5rem, 0.375rem + 0.625vw, 0.9375rem);
+  --spacing-xs-s: clamp(0.75rem, 0.6071rem + 0.7143vw, 1.25rem);
+  --spacing-s-m: clamp(1rem, 0.75rem + 1.25vw, 1.875rem);
+  --spacing-m-l: clamp(1.5rem, 1.2143rem + 1.4286vw, 2.5rem);
+  --spacing-l-xl: clamp(2rem, 1.5rem + 2.5vw, 3.75rem);
+  --spacing-xl-2xl: clamp(3rem, 2.4286rem + 2.8571vw, 5rem);
+  --spacing-2xl-3xl: clamp(4rem, 3rem + 5vw, 7.5rem);
+
+  /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --text-step-xs: clamp(0.6944rem, 0.6919rem + 0.0129vw, 0.7035rem);
+  --text-step-sm: clamp(0.8333rem, 0.8035rem + 0.1491vw, 0.9377rem);
+  --text-step-base: clamp(1rem, 0.9286rem + 0.3571vw, 1.25rem);
+  --text-step-lg: clamp(1.2rem, 1.0668rem + 0.6661vw, 1.6663rem);
+  --text-step-xl: clamp(1.44rem, 1.2168rem + 1.1159vw, 2.2211rem);
+  --text-step-2xl: clamp(1.728rem, 1.3758rem + 1.7611vw, 2.9607rem);
+  --text-step-3xl: clamp(2.0736rem, 1.5384rem + 2.6758vw, 3.9467rem);
+  --text-step-4xl: clamp(2.4883rem, 1.6962rem + 3.9608vw, 5.2609rem);
+}
+
+@layer base {
+  :where(h1, h2, h3, h4, h5, h6) {
+    @apply font-heading text-balance;
+  }
+
+  h1 {
+    @apply text-step-4xl/tight;
+  }
+
+  h2 {
+    @apply text-step-3xl;
+  }
+
+  h3 {
+    @apply text-step-2xl;
+  }
+
+  :where(p) {
+    @apply text-pretty;
+  }
+
+  :where(button) {
+    @apply cursor-pointer;
+  }
+
+  :where(a, button) {
+    @apply focus-visible:ring-highlight-500 focus-visible:ring-offset-highlight-500 focus-visible:ring focus-visible:ring-offset-2 focus-visible:outline-none;
+  }
+}
