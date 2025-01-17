@@ -124,3 +124,8 @@
     @apply focus-visible:ring-highlight-500 focus-visible:ring-offset-highlight-500 focus-visible:ring focus-visible:ring-offset-2 focus-visible:outline-none;
   }
 }
+
+@utility wrapper {
+  width: min(1440px, 100% - 2rem);
+  margin-inline: auto;
+}

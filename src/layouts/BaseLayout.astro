@@ -10,6 +10,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const path = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -25,10 +27,18 @@ const { title, description } = Astro.props;
   <body
     class="bg-surface-900 text-highlight-500 text-step-base grid min-h-screen grid-rows-[auto_1fr_auto] leading-normal"
   >
-    <SiteHeader />
-    <main>
-      <slot />
+    <SiteHeader currentPath={path} />
+    <main class="relative">
+      <div
+        aria-hidden="true"
+        class="from-primary-800 via-primary-500/40 to-primary-800 absolute inset-x-0 -z-10 h-10 bg-gradient-to-r blur-3xl content-['']"
+      >
+      </div>
+
+      <div class="wrapper gap-y-2xl-3xl pt-2xl-3xl flex flex-col">
+        <slot />
+      </div>
     </main>
+    <SiteFooter />
   </body>
-  <SiteFooter />
 </html>
