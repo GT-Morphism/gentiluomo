@@ -1,17 +1,17 @@
 import eslint from "@eslint/js";
 import prettier from "eslint-config-prettier";
-import vue from "eslint-plugin-vue";
+import svelte from "eslint-plugin-svelte";
 import astro from "eslint-plugin-astro";
 import globals from "globals";
 import tsEslint from "typescript-eslint";
 
-import vueParser from "vue-eslint-parser";
+import svelteParser from "svelte-eslint-parser";
 import astroParser from "astro-eslint-parser";
 
 export default tsEslint.config(
   eslint.configs.recommended,
   ...tsEslint.configs.recommended,
-  ...vue.configs["flat/recommended"],
+  ...svelte.configs["flat/recommended"],
   ...astro.configs.recommended,
   prettier,
   {
@@ -19,7 +19,7 @@ export default tsEslint.config(
       parser: tsEslint.parser,
       parserOptions: {
         projectService: true,
-        extraFileExtensions: [".vue"],
+        extraFileExtensions: [".svelte"],
       },
       globals: {
         ...globals.browser,
@@ -28,9 +28,9 @@ export default tsEslint.config(
     },
   },
   {
-    files: ["**/*.vue"],
+    files: ["**/*.svelte"],
     languageOptions: {
-      parser: vueParser,
+      parser: svelteParser,
       parserOptions: {
         projectService: true,
         parser: tsEslint.parser,
