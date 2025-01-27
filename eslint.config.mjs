@@ -7,6 +7,7 @@ import tsEslint from "typescript-eslint";
 
 import svelteParser from "svelte-eslint-parser";
 import astroParser from "astro-eslint-parser";
+import svelteConfig from "./svelte.config.js";
 
 export default tsEslint.config(
   eslint.configs.recommended,
@@ -34,6 +35,7 @@ export default tsEslint.config(
       parserOptions: {
         projectService: true,
         parser: tsEslint.parser,
+        svelteConfig,
       },
     },
   },
