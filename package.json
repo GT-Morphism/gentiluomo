@@ -10,7 +10,7 @@
     "check:lint": "eslint .",
     "check:format": "prettier --check .",
     "format": "prettier --write .",
-    "up:deps:": "pnpm update -i --latest",
+    "up:deps": "pnpm update -i --latest",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
