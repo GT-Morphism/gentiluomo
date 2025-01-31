@@ -1,3 +1,3 @@
-# Einführung
+# Für jedermann, also auch für Dich
 
-Auf Empathie basiere Kursplattform zur Meisterung mathematischer Grundlagen.
+Diskurse zwischen einem Gentleman, einem Entwickler und einem Mentor.
