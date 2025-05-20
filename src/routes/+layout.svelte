@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "../styles/base.css";
   import { onNavigate } from "$app/navigation";
   const { children } = $props();
   onNavigate((navigation) => {

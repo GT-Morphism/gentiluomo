@@ -1,0 +1,42 @@
+@layer theme {
+  :root {
+    /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1440,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --spacing-3xs: clamp(0.25rem, 0.2321rem + 0.0893vw, 0.3125rem);
+    --spacing-2xs: clamp(0.5rem, 0.4643rem + 0.1786vw, 0.625rem);
+    --spacing-xs: clamp(0.75rem, 0.6964rem + 0.2679vw, 0.9375rem);
+    --spacing-s: clamp(1rem, 0.9286rem + 0.3571vw, 1.25rem);
+    --spacing-m: clamp(1.5rem, 1.3929rem + 0.5357vw, 1.875rem);
+    --spacing-l: clamp(2rem, 1.8571rem + 0.7143vw, 2.5rem);
+    --spacing-xl: clamp(3rem, 2.7857rem + 1.0714vw, 3.75rem);
+    --spacing-2xl: clamp(4rem, 3.7143rem + 1.4286vw, 5rem);
+    --spacing-3xl: clamp(6rem, 5.5714rem + 2.1429vw, 7.5rem);
+
+    --spacing-3xs-2xs: clamp(0.25rem, 0.1429rem + 0.5357vw, 0.625rem);
+    --spacing-2xs-xs: clamp(0.5rem, 0.375rem + 0.625vw, 0.9375rem);
+    --spacing-xs-s: clamp(0.75rem, 0.6071rem + 0.7143vw, 1.25rem);
+    --spacing-s-m: clamp(1rem, 0.75rem + 1.25vw, 1.875rem);
+    --spacing-m-l: clamp(1.5rem, 1.2143rem + 1.4286vw, 2.5rem);
+    --spacing-l-xl: clamp(2rem, 1.5rem + 2.5vw, 3.75rem);
+    --spacing-xl-2xl: clamp(3rem, 2.4286rem + 2.8571vw, 5rem);
+    --spacing-2xl-3xl: clamp(4rem, 3rem + 5vw, 7.5rem);
+
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --font-size-step-xs: clamp(0.6944rem, 0.6919rem + 0.0129vw, 0.7035rem);
+    --font-size-step-sm: clamp(0.8333rem, 0.8035rem + 0.1491vw, 0.9377rem);
+    --font-size-step-base: clamp(1rem, 0.9286rem + 0.3571vw, 1.25rem);
+    --font-size-step-lg: clamp(1.2rem, 1.0668rem + 0.6661vw, 1.6663rem);
+    --font-size-step-xl: clamp(1.44rem, 1.2168rem + 1.1159vw, 2.2211rem);
+    --font-size-step-2xl: clamp(1.728rem, 1.3758rem + 1.7611vw, 2.9607rem);
+    --font-size-step-3xl: clamp(2.0736rem, 1.5384rem + 2.6758vw, 3.9467rem);
+    --font-size-step-4xl: clamp(2.4883rem, 1.6962rem + 3.9608vw, 5.2609rem);
+
+    --border-radius-md: 0.375rem; /* 6px */
+
+    --font-size-heading-sm: var(--font-size-step-xl);
+    --font-size-heading-regular: var(--font-size-step-2xl);
+    --font-size-heading-lg: var(--font-size-step-3xl);
+    --font-size-heading-xl: var(--font-size-step-4xl);
+
+    --zIndex-body: -10;
+  }
+}

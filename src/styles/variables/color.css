@@ -1,0 +1,56 @@
+@layer theme {
+  :root {
+    --color-primary-50: oklch(96.94% 0.011 118.02);
+    --color-primary-100: oklch(94.07% 0.023 120.2);
+    --color-primary-200: oklch(88.1% 0.047 120.69);
+    --color-primary-300: oklch(82.08% 0.07 121.27);
+    --color-primary-400: oklch(76.04% 0.094 121.99);
+    --color-primary-500: oklch(69.68% 0.114 123.04); /* #90A955 */
+    --color-primary-600: oklch(59.48% 0.096 122.84);
+    --color-primary-700: oklch(48.49% 0.076 122.74);
+    --color-primary-800: oklch(36.83% 0.055 122.55);
+    --color-primary-900: oklch(24.15% 0.031 122.1);
+    --color-primary-950: oklch(17.13% 0.017 124.76);
+
+    --color-secondary-50: oklch(97.29% 0.011 71.9);
+    --color-secondary-100: oklch(94.66% 0.023 69.6);
+    --color-secondary-200: oklch(90.13% 0.044 69.47);
+    --color-secondary-300: oklch(85.06% 0.068 70.36);
+    --color-secondary-400: oklch(79.78% 0.091 69.74);
+    --color-secondary-500: oklch(75.25% 0.11 67.83); /* #DDA15E */
+    --color-secondary-600: oklch(67.23% 0.134 64.38);
+    --color-secondary-700: oklch(54.86% 0.108 64.45);
+    --color-secondary-800: oklch(41.81% 0.079 66.67);
+    --color-secondary-900: oklch(26.26% 0.044 66.41);
+    --color-secondary-950: oklch(18.16% 0.026 72.85);
+
+    --color-tertiary-50: oklch(93.99% 0.031 145.33);
+    --color-tertiary-100: oklch(87.9% 0.058 145.06);
+    --color-tertiary-200: oklch(76.77% 0.116 144.34);
+    --color-tertiary-300: oklch(64.59% 0.154 143.54);
+    --color-tertiary-400: oklch(46.76% 0.107 143.64);
+    --color-tertiary-500: oklch(25.89% 0.051 143.93); /* #132A13 */
+    --color-tertiary-600: oklch(23.36% 0.044 144.03);
+    --color-tertiary-700: oklch(19.57% 0.034 144.15);
+    --color-tertiary-800: oklch(16.85% 0.026 144.33);
+    --color-tertiary-900: oklch(11.94% 0.017 144.41);
+    --color-tertiary-950: oklch(10.01% 0.012 144.61);
+
+    --text-brand: var(--color-primary-500);
+    --text-main: var(--color-primary-100);
+
+    --background-main: var(--color-tertiary-900);
+
+    --background-accent-main: var(--color-primary-500);
+    --background-accent-main-50: color-mix(
+      in oklch,
+      var(--background-accent-main) 50%,
+      transparent
+    );
+    --background-accent-main-20: color-mix(
+      in oklch,
+      var(--background-accent-main) 20%,
+      transparent
+    );
+  }
+}

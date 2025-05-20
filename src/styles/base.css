@@ -1,0 +1,97 @@
+@import "./reset.css";
+@import "./variables/color.css";
+@import "./variables/spacing.css";
+@import "./variables/easing.css";
+
+@layer base {
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+      scroll-behavior: smooth;
+    }
+  }
+
+  html:has(dialog[open]) {
+    overflow: hidden;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    row-gap: var(--spacing-2xl-3xl);
+
+    font-size: var(--font-size-step-base);
+    color: var(--text-main);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: var(--zIndex-body);
+
+      background-attachment: fixed;
+      /* reference: https://10015.io/tools/css-background-pattern-generator */
+      background-image:
+        linear-gradient(
+          color-mix(in oklch, var(--color-tertiary-800) 50%, transparent) 2px,
+          transparent 2px
+        ),
+        linear-gradient(
+          to right,
+          color-mix(in oklch, var(--color-tertiary-800) 50%, transparent) 2px,
+          transparent 2px
+        );
+
+      background-size: 1.25rem 1.25rem;
+      background-color: var(--background-main);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: var(--zIndex-body);
+
+      background-color: oklch(from var(--color-tertiary-900) l c h / 60%);
+      background-attachment: fixed;
+      background-image:
+        radial-gradient(
+          at 0% 15%,
+          color-mix(in oklab, var(--color-secondary-700) 20%, transparent) 0px,
+          transparent 50%
+        ),
+        radial-gradient(
+          at 20% 75%,
+          color-mix(in oklab, var(--color-primary-700) 20%, transparent) 0px,
+          transparent 50%
+        ),
+        radial-gradient(
+          at 100% 85%,
+          color-mix(in oklab, var(--color-secondary-700) 20%, transparent) 0px,
+          transparent 50%
+        ),
+        radial-gradient(
+          at 80% 25%,
+          color-mix(in oklab, var(--color-primary-700) 20%, transparent) 0px,
+          transparent 50%
+        );
+    }
+  }
+
+  :where(h1) {
+    font-size: var(--font-size-heading-xl);
+  }
+
+  :where(a, button, summary) {
+    outline-offset: 0;
+    transition: outline-offset var(--ease-2) 200ms;
+    &:focus-visible {
+      outline-style: solid;
+      outline-width: 2px;
+      outline-color: var(--background-accent-main);
+      outline-offset: 4px;
+    }
+  }
+}
