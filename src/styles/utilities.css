@@ -1,0 +1,27 @@
+@layer utilities {
+  .wrapper {
+    --_maxWidth: 1280px;
+    width: min(var(--_maxWidth), 100% - 2rem);
+    margin-inline: auto;
+
+    &[data-max-width="narrow"] {
+      --_maxWidth: 1028px;
+    }
+  }
+
+  .flow > * + * {
+    margin-block-start: 1.25em;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
