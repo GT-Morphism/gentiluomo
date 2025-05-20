@@ -6,6 +6,7 @@
 
   import SiteHeader from "$lib/components/SiteHeader.svelte";
   import SiteFooter from "$lib/components/SiteFooter.svelte";
+  import Dialog from "$lib/components/dialog/Dialog.svelte";
 
   const { children } = $props();
 
@@ -27,3 +28,4 @@
 
 <SiteFooter />
 
+<Dialog />

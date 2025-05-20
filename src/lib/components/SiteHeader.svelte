@@ -1,10 +1,20 @@
 <script lang="ts">
+  import { onMount } from "svelte";
 
   import StaticLogo from "./StaticLogo.svelte";
   import IconGithub from "~icons/tabler/brand-github";
   import IconScribble from "~icons/tabler/scribble";
   import IconHandshake from "~icons/lucide/handshake";
+  import IconMenu from "~icons/lucide/menu";
+  import MobileNavigation from "./MobileNavigation.svelte";
+
+  import { addDialog, showDialog } from "$lib/components/dialog/Dialog.svelte";
+
+  onMount(() => {
+    addDialog("mobile-navigation", mobileNavigation);
+  });
 </script>
+
 <header data-component="site-header">
   <nav data-sideheader-child="navigation">
     <a href="/">
@@ -26,10 +36,29 @@
       <span class="sr-only">Zum GitHub Profil</span>
     </a>
 
+    <button
+      data-siteheader-child="mobile-navigation-trigger"
+      onclick={() => showDialog("mobile-navigation")}
+    >
+      <IconMenu />
+      <span class="sr-only">Mobile Navigation öffnen</span>
+    </button>
   </nav>
 </header>
 
+{#snippet mobileNavigation()}
+  <MobileNavigation />
+{/snippet}
+
 <style>
+  [data-component="site-header"] {
+    @media (width < calc(3 * 200px + 200px + 3 * clamp(1rem, 0.75rem + 1.25vw, 1.875rem) + 2rem)) {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(1.25rem);
+    }
+  }
+
   [data-sideheader-child="navigation"] {
     display: flex;
     align-items: center;
@@ -40,6 +69,19 @@
     > :first-child {
       font-size: var(--font-size-step-lg);
       margin-inline-end: auto;
+    }
+  }
+
+  [data-siteheader-child="mobile-navigation-trigger"] {
+    background-color: transparent;
+    border: none;
+
+    :global(svg) {
+      color: var(--text-main);
+    }
+
+    @media (width >= calc(3 * 200px + 200px + 3 * clamp(1rem, 0.75rem + 1.25vw, 1.875rem) + 2rem)) {
+      display: none;
     }
   }
 
@@ -67,5 +109,10 @@
       aspect-ratio: 1 / 1;
     }
 
+    &:not([href="/"]) {
+      @media (width < calc(3 * 200px + 200px + 3 * clamp(1rem, 0.75rem + 1.25vw, 1.875rem) + 2rem)) {
+        display: none;
+      }
+    }
   }
 </style>
