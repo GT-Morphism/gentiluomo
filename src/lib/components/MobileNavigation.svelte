@@ -84,9 +84,9 @@
 
       border-top: 2px solid var(--color-primary-500);
 
-      :global(svg) {
+      a {
         color: var(--color-primary-500);
-        font-size: var(--font-size-step-3xl);
+        font-size: var(--font-size-step-lg);
         padding: var(--spacing-2xs-xs);
         border-radius: calc(infinity * 1px);
         border: 1px solid var(--color-primary-500);
