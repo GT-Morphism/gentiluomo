@@ -38,5 +38,6 @@
     --font-size-heading-xl: var(--font-size-step-4xl);
 
     --zIndex-body: -10;
+    --zIndex-header: 10;
   }
 }

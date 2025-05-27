@@ -56,6 +56,8 @@
       position: sticky;
       top: 0;
       backdrop-filter: blur(1.25rem);
+
+      z-index: var(--zIndex-header);
     }
   }
 
