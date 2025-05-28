@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   import StaticLogo from "./StaticLogo.svelte";
-  import IconGithub from "~icons/tabler/brand-github";
+  import IconLayoutDashboard from "~icons/lucide/layout-dashboard";
   import IconScribble from "~icons/tabler/scribble";
   import IconHandshake from "~icons/lucide/handshake";
   import IconMenu from "~icons/lucide/menu";
@@ -31,9 +31,9 @@
       <span class="sr-only">Zur Danksagung</span>
     </a>
 
-    <a href="https://github.com/GT-Morphism"
-      ><IconGithub />
-      <span class="sr-only">Zum GitHub Profil</span>
+    <a href="/dashboard">
+      <IconLayoutDashboard />
+      <span class="sr-only">Zum Dashboard</span>
     </a>
 
     <button

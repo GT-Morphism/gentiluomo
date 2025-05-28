@@ -2,6 +2,7 @@
 @import "./variables/color.css";
 @import "./variables/spacing.css";
 @import "./variables/easing.css";
+@import "./variables/animation.css";
 
 @layer base {
   @media (prefers-reduced-motion: no-preference) {
@@ -84,7 +85,7 @@
     font-size: var(--font-size-heading-xl);
   }
 
-  :where(a, button, summary) {
+  :where(a, button, summary, input) {
     outline-offset: 0;
     transition: outline-offset var(--ease-2) 200ms;
     &:focus-visible {

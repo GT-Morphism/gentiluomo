@@ -2,6 +2,6 @@
   const { children } = $props();
 </script>
 
-<main class="wrapper" data-max-width="narrow">
+<main class="wrapper flow" data-max-width="prose">
   {@render children()}
 </main>

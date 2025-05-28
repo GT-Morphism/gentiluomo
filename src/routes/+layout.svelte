@@ -4,6 +4,8 @@
 
   import { onNavigate } from "$app/navigation";
 
+  import { setUserState } from "$lib/state-user.svelte";
+
   import SiteHeader from "$lib/components/SiteHeader.svelte";
   import SiteFooter from "$lib/components/SiteFooter.svelte";
   import Dialog from "$lib/components/dialog/Dialog.svelte";
@@ -20,6 +22,8 @@
       });
     });
   });
+
+  setUserState();
 </script>
 
 <SiteHeader />

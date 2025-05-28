@@ -1,16 +1,72 @@
 @layer utilities {
   .wrapper {
     --_maxWidth: 1280px;
-    width: min(var(--_maxWidth), 100% - 2rem);
+    inline-size: min(var(--_maxWidth), 100% - 2rem);
     margin-inline: auto;
 
     &[data-max-width="narrow"] {
       --_maxWidth: 1028px;
     }
+
+    &[data-max-width="prose"] {
+      --_maxWidth: 65ch;
+    }
   }
 
   .flow > * + * {
-    margin-block-start: 1.25em;
+    margin-block-start: var(--flow-space, 1.25lh);
+
+    /* For elements immediately following a `label` */
+    &:is(label + *) {
+      --flow-space: 0.25lh;
+    }
+  }
+
+  @supports (text-box: cap alphabetic) {
+    .prose :is(h2, h3, p, span, ul, ol, li, blockquote) {
+      --flow-space: 1.5lh;
+
+      text-box: cap alphabetic;
+    }
+  }
+
+  .animated-underline {
+    position: relative;
+    z-index: 1;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 4px;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      z-index: -1;
+
+      transform-origin: left;
+      scale: 0 1;
+    }
+
+    &:where(:hover, :focus-visible) {
+      text-decoration-style: solid;
+      &::after {
+        scale: 1 1;
+      }
+    }
+
+    &[data-theme="primary"] {
+      text-decoration-color: var(--color-primary-500);
+
+      &::after {
+        background-color: oklch(from var(--color-primary-500) l c h / 0.2);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      &::after {
+        transition: scale 500ms var(--ease-out-4);
+      }
+    }
   }
 
   .sr-only {

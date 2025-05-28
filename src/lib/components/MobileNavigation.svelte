@@ -6,7 +6,7 @@
   import IconNetwork from "~icons/lucide/network";
   import IconFingerprint from "~icons/lucide/fingerprint";
   import IconMap from "~icons/lucide/map";
-  import IconGithub from "~icons/tabler/brand-github";
+  import IconLayoutDashboard from "~icons/lucide/layout-dashboard";
   import IconScribble from "~icons/tabler/scribble";
   import IconHandshake from "~icons/lucide/handshake";
 </script>
@@ -64,9 +64,9 @@
     <span class="sr-only">Zur Danksagung</span>
   </a>
 
-  <a href="https://github.com/GT-Morphism"
-    ><IconGithub />
-    <span class="sr-only">Zum GitHub Profil</span>
+  <a href="/dashboard">
+    <IconLayoutDashboard />
+    <span class="sr-only">Zum Dashboard</span>
   </a>
 </div>
 
