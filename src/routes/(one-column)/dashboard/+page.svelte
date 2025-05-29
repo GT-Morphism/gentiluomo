@@ -1,8 +1,10 @@
 <script lang="ts">
   import { getUserState } from "$lib/state-user.svelte";
+  import { addToast } from "$lib/components/DonToaster.svelte";
 
   import IconSave from "~icons/lucide/save";
   import IconTrash from "~icons/lucide/trash-2";
+  import IconBadgeCheck from "~icons/lucide/badge-check";
 
   import DonButton from "$lib/components/DonButton.svelte";
   import DonCallout from "$lib/components/DonCallout.svelte";
@@ -11,6 +13,7 @@
   const user = getUserState();
 
   let editUserNameInput = $state<HTMLInputElement>();
+  let newUserName = $state(user.name);
 </script>
 
 <h1>Dein Bereich</h1>
@@ -61,7 +64,7 @@
 
     const nameFromData = data.get("name-on-website");
 
-    if (!nameFromData) {
+    if (nameFromData === null) {
       return;
     }
 
@@ -69,7 +72,30 @@
       return;
     }
 
+    if (nameFromData === user.name) {
+      return;
+    }
+
     user.name = nameFromData;
+
+    if (nameFromData === "") {
+      addToast({
+        data: {
+          title: "Ciao 🤌🏻",
+          description: "Deine Änderungen wurden übernommen",
+          Icon: IconBadgeCheck,
+        },
+      });
+      return;
+    }
+
+    addToast({
+      data: {
+        title: `Grazie ${user.name} 💪`,
+        description: "Deine Änderungen wurden übernommen",
+        Icon: IconBadgeCheck,
+      },
+    });
   }}
 >
   <label for="name-on-website">Wie darf ich Dich denn nennen?</label>
@@ -79,10 +105,10 @@
       name="name-on-website"
       type="text"
       placeholder="Madara Uchiha"
-      bind:value={user.name}
+      bind:value={newUserName}
       bind:ref={editUserNameInput}
     />
-    <DonButton type="button" onclick={() => (user.name = "")} config="alert icon">
+    <DonButton type="button" onclick={() => (newUserName = "")} config="alert icon">
       <IconTrash aria-hidden="true" />
       <span class="sr-only">Namen löschen</span>
     </DonButton>

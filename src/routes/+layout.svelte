@@ -9,6 +9,7 @@
   import SiteHeader from "$lib/components/SiteHeader.svelte";
   import SiteFooter from "$lib/components/SiteFooter.svelte";
   import Dialog from "$lib/components/dialog/Dialog.svelte";
+  import DonToaster from "$lib/components/DonToaster.svelte";
 
   const { children } = $props();
 
@@ -25,6 +26,8 @@
 
   setUserState();
 </script>
+
+<DonToaster />
 
 <SiteHeader />
 

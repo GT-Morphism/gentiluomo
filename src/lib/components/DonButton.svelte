@@ -115,6 +115,7 @@
     }
 
     [data-button-config~="small"] {
+      padding: 0.25rem;
       font-size: var(--font-size-step-sm);
     }
   }
