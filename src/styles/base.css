@@ -5,10 +5,34 @@
 @import "./variables/animation.css";
 
 @layer base {
+  ::selection {
+    background-color: var(--color-primary-500);
+    color: var(--background-main);
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     html {
       interpolate-size: allow-keywords;
       scroll-behavior: smooth;
+    }
+  }
+
+  @supports (scrollbar-color: auto) {
+    html {
+      scrollbar-color: var(--color-primary-500) var(--background-main);
+      scrollbar-width: thin;
+    }
+  }
+
+  @supports selector(::-webkit-scrollbar) {
+    html::-webkit-scrollbar {
+      inline-size: 0.25rem;
+      background-color: var(--background-main);
+    }
+
+    html::-webkit-scrollbar-thumb {
+      background-color: var(--color-primary-500);
+      border-radius: calc(infinity * 1px);
     }
   }
 
