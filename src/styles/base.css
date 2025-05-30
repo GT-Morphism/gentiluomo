@@ -4,7 +4,7 @@
 @import "./variables/easing.css";
 @import "./variables/animation.css";
 
-@layer reset, theme, base, components, utilities;
+@layer reset, theme, base, layouts, components, utilities;
 
 @layer base {
   ::selection {
