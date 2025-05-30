@@ -6,8 +6,8 @@
 
   import { setUserState } from "$lib/state-user.svelte";
 
-  import SiteHeader from "$lib/components/SiteHeader.svelte";
-  import SiteFooter from "$lib/components/SiteFooter.svelte";
+  import DonHeader from "$lib/components/DonHeader.svelte";
+  import DonFooter from "$lib/components/DonFooter.svelte";
   import Dialog from "$lib/components/dialog/Dialog.svelte";
   import DonToaster from "$lib/components/DonToaster.svelte";
 
@@ -29,10 +29,10 @@
 
 <DonToaster />
 
-<SiteHeader />
+<DonHeader />
 
 {@render children()}
 
-<SiteFooter />
+<DonFooter />
 
 <Dialog />

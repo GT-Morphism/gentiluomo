@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import StaticLogo from "./StaticLogo.svelte";
+  import DonLogo from "./DonLogo.svelte";
   import IconLayoutDashboard from "~icons/lucide/layout-dashboard";
   import IconNotebookText from "~icons/lucide/notebook-text";
   import IconHandshake from "~icons/lucide/handshake";
   import IconMenu from "~icons/lucide/menu";
-  import MobileNavigation from "./MobileNavigation.svelte";
+  import DonMobileNavigation from "./DonMobileNavigation.svelte";
 
   import { addDialog, showDialog } from "$lib/components/dialog/Dialog.svelte";
 
@@ -18,7 +18,7 @@
 <header data-component="site-header">
   <nav data-sideheader-child="navigation">
     <a href="/">
-      <StaticLogo />
+      <DonLogo />
       <span class="sr-only">Zurück zur Startseite</span>
     </a>
 
@@ -47,7 +47,7 @@
 </header>
 
 {#snippet mobileNavigation()}
-  <MobileNavigation />
+  <DonMobileNavigation />
 {/snippet}
 
 <style>

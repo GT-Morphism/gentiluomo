@@ -1,12 +1,12 @@
 <script lang="ts">
-  import PageNavigation from "$lib/components/PageNavigation.svelte";
+  import DonPageNavigation from "$lib/components/DonPageNavigation.svelte";
 
   const { children } = $props();
 </script>
 
 <div class="side-by-side wrapper">
   <div data-config-side-by-side="sidebar">
-    <PageNavigation />
+    <DonPageNavigation />
   </div>
   <main data-config-side-by-side="content">
     {@render children()}
