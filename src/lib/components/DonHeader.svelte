@@ -106,6 +106,9 @@
   }
 
   a {
+    text-decoration: inherit;
+    color: inherit;
+
     &[href="/"] {
       max-inline-size: 3rem;
       aspect-ratio: 1 / 1;

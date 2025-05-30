@@ -31,6 +31,9 @@
 <style>
   @layer components {
     [data-component="path-aware-link"] {
+      text-decoration: inherit;
+      color: inherit;
+
       &[data-theme="primary"] {
         --_theme-color: var(--color-primary-500);
       }
