@@ -3,7 +3,7 @@
 
   import StaticLogo from "./StaticLogo.svelte";
   import IconLayoutDashboard from "~icons/lucide/layout-dashboard";
-  import IconScribble from "~icons/tabler/scribble";
+  import IconNotebookText from "~icons/lucide/notebook-text";
   import IconHandshake from "~icons/lucide/handshake";
   import IconMenu from "~icons/lucide/menu";
   import MobileNavigation from "./MobileNavigation.svelte";
@@ -23,7 +23,7 @@
     </a>
 
     <a href="/notizen">
-      <IconScribble />
+      <IconNotebookText />
       <span class="sr-only">Zu den Notizen</span>
     </a>
     <a href="/danksagung">

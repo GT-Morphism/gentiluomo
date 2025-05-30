@@ -7,7 +7,7 @@
   import IconFingerprint from "~icons/lucide/fingerprint";
   import IconMap from "~icons/lucide/map";
   import IconLayoutDashboard from "~icons/lucide/layout-dashboard";
-  import IconScribble from "~icons/tabler/scribble";
+  import IconNotebookText from "~icons/lucide/notebook-text";
   import IconHandshake from "~icons/lucide/handshake";
 </script>
 
@@ -56,7 +56,7 @@
 
 <div>
   <a href="/notizen">
-    <IconScribble />
+    <IconNotebookText />
     <span class="sr-only">Zu den Notizen</span>
   </a>
   <a href="/danksagung">
