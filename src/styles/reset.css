@@ -36,6 +36,11 @@
     font: inherit;
   }
 
+  :where(a) {
+    text-decoration: inherit;
+    color: inherit;
+  }
+
   :where(p, h1, h2, h3) {
     overflow-wrap: break-word;
   }

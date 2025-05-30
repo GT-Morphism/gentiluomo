@@ -4,8 +4,6 @@
 @import "./variables/easing.css";
 @import "./variables/animation.css";
 
-@layer reset, theme, base, layouts, components, utilities;
-
 @layer base {
   ::selection {
     background-color: var(--color-primary-500);
