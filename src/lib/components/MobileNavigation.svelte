@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { page } from "$app/state";
-
   import IconSquareFunction from "~icons/lucide/square-function";
   import IconDumbbell from "~icons/lucide/dumbbell";
   import IconNetwork from "~icons/lucide/network";
@@ -9,45 +7,33 @@
   import IconLayoutDashboard from "~icons/lucide/layout-dashboard";
   import IconNotebookText from "~icons/lucide/notebook-text";
   import IconHandshake from "~icons/lucide/handshake";
+
+  import DonPathAwareLink from "./DonPathAwareLink.svelte";
 </script>
 
 <nav data-component="mobile-navigation">
   <ul data-mobilenavigation-child="main-navigation">
     <li data-mobilenavigation-child="main-navigation-item">
-      <a class:current-page={page.url.pathname === "/prinzipien"} href="/prinzipien">
-        <IconFingerprint />
-        <span>Prinzipien</span>
-      </a>
+      <DonPathAwareLink href="/prinzipien" label="Prinzipien" Icon={IconFingerprint} />
     </li>
 
     <li data-mobilenavigation-child="main-navigation-item">
       <span data-mobilenavigation-child="sub-navigation-label">Kategorien</span>
       <ul data-mobilenavigation-child="sub-navigation">
         <li>
-          <a class:current-page={page.url.pathname === "/kategorien"} href="/kategorien">
-            <IconMap />
-            <span>Leitfaden</span>
-          </a>
+          <DonPathAwareLink href="/kategorien" label="Leitfaden" Icon={IconMap} />
         </li>
 
         <li>
-          <a class:current-page={page.url.pathname.includes("bildung")} href="/kategorien/bildung">
-            <IconSquareFunction />
-            <span>Bildung</span>
-          </a>
-        </li>
-        <li>
-          <a class:current-page={page.url.pathname.includes("sport")} href="/kategorien/sport">
-            <IconDumbbell />
-            <span>Sport</span>
-          </a>
+          <DonPathAwareLink href="/kategorien/bildung" label="Bildung" Icon={IconSquareFunction} />
         </li>
 
         <li>
-          <a class:current-page={page.url.pathname.includes("beruf")} href="/kategorien/beruf">
-            <IconNetwork />
-            <span>Beruf</span>
-          </a>
+          <DonPathAwareLink href="/kategorien/sport" label="Sport" Icon={IconDumbbell} />
+        </li>
+
+        <li>
+          <DonPathAwareLink href="/kategorien/beruf" label="Beruf" Icon={IconNetwork} />
         </li>
       </ul>
     </li>
@@ -55,19 +41,26 @@
 </nav>
 
 <div>
-  <a href="/notizen">
-    <IconNotebookText />
-    <span class="sr-only">Zu den Notizen</span>
-  </a>
-  <a href="/danksagung">
-    <IconHandshake />
-    <span class="sr-only">Zur Danksagung</span>
-  </a>
+  <DonPathAwareLink
+    href="/notizen"
+    label="Zu den Notizen"
+    config={["icon-only"]}
+    Icon={IconNotebookText}
+  />
 
-  <a href="/dashboard">
-    <IconLayoutDashboard />
-    <span class="sr-only">Zum Dashboard</span>
-  </a>
+  <DonPathAwareLink
+    href="/danksagung"
+    label="Zur Danksagung"
+    config={["icon-only"]}
+    Icon={IconHandshake}
+  />
+
+  <DonPathAwareLink
+    href="/dashboard"
+    label="Zum Dashboard"
+    config={["icon-only"]}
+    Icon={IconLayoutDashboard}
+  />
 </div>
 
 <style>
@@ -83,15 +76,6 @@
       padding-block-start: var(--spacing-m-l);
 
       border-top: 2px solid var(--color-primary-500);
-
-      a {
-        color: var(--color-primary-500);
-        font-size: var(--font-size-step-lg);
-        padding: var(--spacing-2xs-xs);
-        border-radius: calc(infinity * 1px);
-        border: 1px solid var(--color-primary-500);
-        background-color: var(--color-primary-950);
-      }
     }
   }
 
@@ -126,20 +110,5 @@
     padding-inline: var(--spacing-xs-s);
 
     mask: conic-gradient(at calc(100% - calc(3rem - var(--spacing-xs-s))) 1rem, #0000 25%, #000 0);
-  }
-
-  a {
-    display: inline-flex;
-    column-gap: var(--spacing-xs-s);
-    align-items: center;
-
-    &.current-page {
-      text-decoration: underline wavy 2px var(--color-primary-500);
-      font-weight: bold;
-    }
-
-    &:not(.current-page):where(:hover, :focus-visible) {
-      text-decoration: underline solid 4px var(--color-primary-500);
-    }
   }
 </style>

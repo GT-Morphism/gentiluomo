@@ -10,22 +10,22 @@
   import IconMap from "~icons/lucide/map";
 
   import DonDetails from "./DonDetails.svelte";
+  import DonPathAwareLink from "./DonPathAwareLink.svelte";
 </script>
 
 <nav data-component="page-navigation">
   <ul data-pagenavigation-child="navigation-list">
     <li>
-      <a class:current-page={page.url.pathname === "/"} href="/">
-        <IconHome />
-        <span>Home</span>
-      </a>
+      <DonPathAwareLink href="/" label="Home" theme="secondary" Icon={IconHome} />
     </li>
 
     <li>
-      <a class:current-page={page.url.pathname === "/prinzipien"} href="/prinzipien">
-        <IconFingerprint />
-        <span>Prinzipien</span>
-      </a>
+      <DonPathAwareLink
+        href="/prinzipien"
+        theme="secondary"
+        label="Prinzipien"
+        Icon={IconFingerprint}
+      />
     </li>
 
     <li data-pagenavigation-child="navigation-list-details">
@@ -39,33 +39,38 @@
 
         <ul data-pagenavigation-child="navigation-list-details-body">
           <li>
-            <a class:current-page={page.url.pathname === "/kategorien"} href="/kategorien">
-              <IconMap />
-              <span>Leitfaden</span>
-            </a>
+            <DonPathAwareLink
+              href="/kategorien"
+              label="Leitfaden"
+              theme="secondary"
+              Icon={IconMap}
+            />
           </li>
 
           <li>
-            <a
-              class:current-page={page.url.pathname.includes("bildung")}
+            <DonPathAwareLink
               href="/kategorien/bildung"
-            >
-              <IconSquareFunction />
-              <span>Bildung</span>
-            </a>
+              label="Bildung"
+              theme="secondary"
+              Icon={IconSquareFunction}
+            />
           </li>
           <li>
-            <a class:current-page={page.url.pathname.includes("sport")} href="/kategorien/sport">
-              <IconDumbbell />
-              <span>Sport</span>
-            </a>
+            <DonPathAwareLink
+              href="/kategorien/sport"
+              label="Sport"
+              theme="secondary"
+              Icon={IconDumbbell}
+            />
           </li>
 
           <li>
-            <a class:current-page={page.url.pathname.includes("beruf")} href="/kategorien/beruf">
-              <IconNetwork />
-              <span>Beruf</span>
-            </a>
+            <DonPathAwareLink
+              href="/kategorien/beruf"
+              label="Beruf"
+              theme="secondary"
+              Icon={IconNetwork}
+            />
           </li>
         </ul>
       </DonDetails>
@@ -75,34 +80,18 @@
 
 <style>
   @layer components {
-    ul {
-      list-style: none;
-      padding-inline-start: 0;
-    }
-
-    a {
-      display: inline-flex;
-      column-gap: var(--spacing-2xs-xs);
-      align-items: center;
-
-      border-radius: calc(infinity * 1px);
-
-      &.current-page {
-        text-decoration: underline wavy 2px var(--color-secondary-500);
-        font-weight: bold;
-      }
-
-      &:not(.current-page):where(:hover, :focus-visible) {
-        text-decoration: underline solid 4px var(--color-secondary-500);
-      }
-    }
-  }
-
-  @layer components {
     [data-component="page-navigation"] {
       position: sticky;
       translate: 0 0;
       inset-block-start: var(--spacing-2xl-3xl);
+    }
+
+    :where(
+      [data-pagenavigation-child="navigation-list"],
+      [data-pagenavigation-child="navigation-list-details-body"]
+    ) {
+      list-style: none;
+      padding-inline-start: 0;
     }
 
     [data-pagenavigation-child="navigation-list"] {
