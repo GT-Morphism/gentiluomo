@@ -40,6 +40,7 @@
       }
 
       &::details-content {
+        background-color: var(--_details-content-bg-color);
         block-size: 0;
         opacity: 0;
       }
@@ -51,6 +52,7 @@
         }
 
         > [data-details-child="summary"] {
+          background-color: var(--_summary-open-bg-color);
           :global([data-details-child="marker"]) {
             rotate: 0.25turn;
           }
