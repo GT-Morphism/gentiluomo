@@ -8,11 +8,12 @@
   import IconNetwork from "~icons/lucide/network";
   import IconFingerprint from "~icons/lucide/fingerprint";
   import IconMap from "~icons/lucide/map";
+
   import DonDetails from "./DonDetails.svelte";
 </script>
 
-<nav data-sidebar-child="navigation">
-  <ul data-sidebar-child="navigation-list">
+<nav data-component="page-navigation">
+  <ul data-pagenavigation-child="navigation-list">
     <li>
       <a class:current-page={page.url.pathname === "/"} href="/">
         <IconHome />
@@ -27,16 +28,16 @@
       </a>
     </li>
 
-    <li data-sidebar-child="navigation-list-details">
+    <li data-pagenavigation-child="navigation-list-details">
       <DonDetails open={page.url.pathname.includes("kategorien")}>
         {#snippet summary()}
-          <div data-sidebar-child="navigation-list-details-header">
+          <div data-pagenavigation-child="navigation-list-details-header">
             <IconChevronRight data-details-child="marker" />
             <span>Kategorien</span>
           </div>
         {/snippet}
 
-        <ul data-sidebar-child="navigation-list-details-body">
+        <ul data-pagenavigation-child="navigation-list-details-body">
           <li>
             <a class:current-page={page.url.pathname === "/kategorien"} href="/kategorien">
               <IconMap />
@@ -98,31 +99,36 @@
   }
 
   @layer components {
-    [data-sidebar-child="navigation"] {
+    [data-component="page-navigation"] {
       position: sticky;
       translate: 0 0;
       inset-block-start: var(--spacing-2xl-3xl);
     }
 
-    [data-sidebar-child="navigation-list"] {
+    [data-pagenavigation-child="navigation-list"] {
       display: grid;
       row-gap: var(--spacing-xs-s);
     }
 
-    [data-sidebar-child="navigation-list-details"] {
-      --_details-content-bg-color: oklch(from var(--color-secondary-800) l c h / 0.2);
+    [data-pagenavigation-child="navigation-list-details"] {
       --_summary-open-bg-color: oklch(from var(--color-secondary-500) l c h / 0.5);
+      --_details-content-bg-color: oklch(from var(--color-secondary-800) l c h / 0.2);
     }
 
-    [data-sidebar-child="navigation-list-details-header"] {
+    [data-pagenavigation-child="navigation-list-details-header"] {
       display: flex;
       align-items: center;
       column-gap: var(--spacing-2xs-xs);
     }
 
-    [data-sidebar-child="navigation-list-details-body"] {
+    [data-pagenavigation-child="navigation-list-details-body"] {
       display: grid;
       row-gap: var(--spacing-2xs-xs);
+
+      /* For firefox (see: https://caniuse.com/?search=details-content) */
+      @supports not selector(::details-content) {
+        background-color: var(--_details-content-bg-color);
+      }
 
       border-inline-start: 2px solid var(--color-secondary-500);
       padding-block: var(--spacing-2xs-xs);
