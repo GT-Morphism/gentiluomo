@@ -21,7 +21,7 @@
     [data-component="progress"] {
       block-size: var(--_height-progress-indicator, var(--spacing-3xs-2xs));
 
-      background-color: oklch(0 0 0 / 0.25);
+      background-color: var(--_color-progress-indicator, var(--color-primary-500));
 
       border-block-end: var(--border-radius-md);
     }
@@ -29,9 +29,9 @@
     [data-progress-child="indicator"] {
       block-size: 100%;
 
-      background-color: var(--_color-progress-indicator, var(--color-primary-500));
+      background-color: var(--color-primary-950);
 
-      translate: calc(var(--progress) * -1) 0;
+      translate: calc(var(--progress) * 1) 0;
     }
   }
 </style>
