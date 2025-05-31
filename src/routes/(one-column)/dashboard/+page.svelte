@@ -3,6 +3,8 @@
   import { addToast } from "$lib/components/DonToaster.svelte";
 
   import IconSave from "~icons/lucide/save";
+  import IconDices from "~icons/lucide/dices";
+
   import IconTrash from "~icons/lucide/trash-2";
   import IconBadgeCheck from "~icons/lucide/badge-check";
 
@@ -14,6 +16,17 @@
 
   let editUserNameInput = $state<HTMLInputElement>();
   let newUserName = $state(user.name);
+
+  const RANDOM_NAMES = [
+    "Itachi",
+    "Naruto",
+    "Kakashi",
+    "Gai",
+    "Sasuke",
+    "Madara",
+    "Obito",
+    "Jiraya",
+  ];
 </script>
 
 <h1>Dein Bereich</h1>
@@ -108,6 +121,18 @@
       bind:value={newUserName}
       bind:ref={editUserNameInput}
     />
+
+    <DonButton
+      type="button"
+      onclick={() => {
+        newUserName = RANDOM_NAMES[Math.floor(Math.random() * RANDOM_NAMES.length)];
+      }}
+      config="subtle"
+    >
+      <span class="sr-only">Generiere einen</span>Zufallsname
+      <IconDices aria-hidden="true" />
+    </DonButton>
+
     <DonButton type="button" onclick={() => (newUserName = "")} config="alert icon">
       <IconTrash aria-hidden="true" />
       <span class="sr-only">Namen löschen</span>
