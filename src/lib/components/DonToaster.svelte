@@ -98,7 +98,7 @@
     [data-toast-child="progress"] {
       position: absolute;
       inset-inline: 0;
-      bottom: 0;
+      inset-block-end: 0;
     }
   }
 </style>

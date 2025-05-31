@@ -77,8 +77,8 @@
         content: "";
         position: absolute;
         inset-inline: 0;
-        bottom: 0;
-        height: var(--_height-divider);
+        inset-block-end: 0;
+        block-size: var(--_height-divider);
         background-color: var(--color-primary-500);
       }
     }

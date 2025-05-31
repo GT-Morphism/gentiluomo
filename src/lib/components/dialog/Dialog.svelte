@@ -28,10 +28,10 @@
 <style>
   dialog {
     /* reset default styling */
-    width: unset;
-    height: unset;
-    max-width: unset;
-    max-height: unset;
+    inline-size: unset;
+    block-size: unset;
+    max-inline-size: unset;
+    max-block-size: unset;
     background: none;
     border: none;
     padding: 0;
@@ -104,8 +104,8 @@
 
     form > button {
       position: absolute;
-      top: 0;
-      right: 0;
+      inset-block-start: 0;
+      inset-inline-end: 0;
       font-size: var(--font-size-step-lg);
       color: var(--text-main);
       aspect-ratio: 1 / 1;

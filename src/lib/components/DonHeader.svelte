@@ -55,7 +55,7 @@
     [data-component="header"] {
       @media (width < calc(3 * 200px + 200px + 3 * clamp(1rem, 0.75rem + 1.25vw, 1.875rem) + 2rem)) {
         position: sticky;
-        top: 0;
+        inset-block-start: 0;
         backdrop-filter: blur(1.25rem);
 
         z-index: var(--zIndex-header);
