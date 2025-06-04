@@ -31,10 +31,13 @@
   }
 
   .animated-underline {
+    --_color: var(--color-primary-500);
+
     position: relative;
     z-index: 1;
     text-decoration-line: underline;
     text-decoration-style: dashed;
+    text-decoration-color: var(--_color);
     text-underline-offset: 4px;
 
     &::after {
@@ -42,6 +45,8 @@
       inset: 0;
       content: "";
       z-index: -1;
+
+      background-color: oklch(from var(--_color) l c h / 0.2);
 
       transform-origin: left;
       scale: 0 1;
@@ -54,12 +59,12 @@
       }
     }
 
-    &[data-theme="primary"] {
-      text-decoration-color: var(--color-primary-500);
+    &[data-theme="secondary"] {
+      --_color: var(--color-secondary-500);
+    }
 
-      &::after {
-        background-color: oklch(from var(--color-primary-500) l c h / 0.2);
-      }
+    &[data-theme="tertiary"] {
+      --_color: var(--color-tertiary-500);
     }
 
     @media (prefers-reduced-motion: no-preference) {

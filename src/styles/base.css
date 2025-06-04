@@ -60,12 +60,12 @@
       /* reference: https://10015.io/tools/css-background-pattern-generator */
       background-image:
         linear-gradient(
-          color-mix(in oklch, var(--color-tertiary-800) 50%, transparent) 2px,
+          color-mix(in oklch, oklch(from var(--background-main) 17% c h) 50%, transparent) 2px,
           transparent 2px
         ),
         linear-gradient(
           to right,
-          color-mix(in oklch, var(--color-tertiary-800) 50%, transparent) 2px,
+          color-mix(in oklch, oklch(from var(--background-main) 17% c h) 50%, transparent) 2px,
           transparent 2px
         );
 
@@ -79,7 +79,7 @@
       inset: 0;
       z-index: var(--zIndex-body);
 
-      background-color: oklch(from var(--color-tertiary-900) l c h / 60%);
+      background-color: oklch(from var(--background-main) l c h / 60%);
       background-attachment: fixed;
       background-image:
         radial-gradient(

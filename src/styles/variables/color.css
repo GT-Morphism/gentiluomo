@@ -24,22 +24,34 @@
     --color-secondary-900: oklch(26.26% 0.044 66.41);
     --color-secondary-950: oklch(18.16% 0.026 72.85);
 
-    --color-tertiary-50: oklch(93.99% 0.031 145.33);
-    --color-tertiary-100: oklch(87.9% 0.058 145.06);
-    --color-tertiary-200: oklch(76.77% 0.116 144.34);
-    --color-tertiary-300: oklch(64.59% 0.154 143.54);
-    --color-tertiary-400: oklch(46.76% 0.107 143.64);
-    --color-tertiary-500: oklch(25.89% 0.051 143.93); /* #132A13 */
-    --color-tertiary-600: oklch(23.36% 0.044 144.03);
-    --color-tertiary-700: oklch(19.57% 0.034 144.15);
-    --color-tertiary-800: oklch(16.85% 0.026 144.33);
-    --color-tertiary-900: oklch(11.94% 0.017 144.41);
-    --color-tertiary-950: oklch(10.01% 0.012 144.61);
+    --color-tertiary-50: oklch(98.49% 0.02 91.58);
+    --color-tertiary-100: oklch(97.51% 0.038 93.82);
+    --color-tertiary-200: oklch(94.98% 0.072 92.67);
+    --color-tertiary-300: oklch(92.75% 0.105 93.07);
+    --color-tertiary-400: oklch(90.23% 0.137 92.27);
+    --color-tertiary-500: oklch(88.35% 0.157 91.21); /* #FFD449 */
+    --color-tertiary-600: oklch(85.18% 0.174 86.95);
+    --color-tertiary-700: oklch(70.45% 0.144 86.38);
+    --color-tertiary-800: oklch(52.68% 0.108 87.66);
+    --color-tertiary-900: oklch(32.84% 0.067 90.65);
+    --color-tertiary-950: oklch(20.85% 0.043 91.86);
+
+    --color-surface-50: oklch(93.99% 0.031 145.33);
+    --color-surface-100: oklch(87.9% 0.058 145.06);
+    --color-surface-200: oklch(76.77% 0.116 144.34);
+    --color-surface-300: oklch(64.59% 0.154 143.54);
+    --color-surface-400: oklch(46.76% 0.107 143.64);
+    --color-surface-500: oklch(25.89% 0.051 143.93); /* #132A13 */
+    --color-surface-600: oklch(23.36% 0.044 144.03);
+    --color-surface-700: oklch(19.57% 0.034 144.15);
+    --color-surface-800: oklch(16.85% 0.026 144.33);
+    --color-surface-900: oklch(11.94% 0.017 144.41);
+    --color-surface-950: oklch(10.01% 0.012 144.61);
 
     --text-brand: var(--color-primary-500);
     --text-main: var(--color-primary-100);
 
-    --background-main: var(--color-tertiary-900);
+    --background-main: var(--color-surface-900);
 
     --background-accent-main: var(--color-primary-500);
     --background-accent-main-50: color-mix(

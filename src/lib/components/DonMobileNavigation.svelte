@@ -14,16 +14,16 @@
 <nav data-component="mobile-navigation">
   <ul data-mobilenavigation-child="main-navigation">
     <li data-mobilenavigation-child="main-navigation-item">
+      <DonPathAwareLink href="/leitfaden" label="Leitfaden" Icon={IconMap} />
+    </li>
+
+    <li data-mobilenavigation-child="main-navigation-item">
       <DonPathAwareLink href="/prinzipien" label="Prinzipien" Icon={IconFingerprint} />
     </li>
 
     <li data-mobilenavigation-child="main-navigation-item">
       <span data-mobilenavigation-child="sub-navigation-label">Kategorien</span>
       <ul data-mobilenavigation-child="sub-navigation">
-        <li>
-          <DonPathAwareLink href="/kategorien" label="Leitfaden" Icon={IconMap} />
-        </li>
-
         <li>
           <DonPathAwareLink href="/kategorien/bildung" label="Bildung" Icon={IconSquareFunction} />
         </li>

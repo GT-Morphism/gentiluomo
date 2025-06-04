@@ -2,9 +2,7 @@
   import { onMount } from "svelte";
 
   import DonLogo from "./DonLogo.svelte";
-  import IconLayoutDashboard from "~icons/lucide/layout-dashboard";
-  import IconNotebookText from "~icons/lucide/notebook-text";
-  import IconHandshake from "~icons/lucide/handshake";
+  import IconMap from "~icons/lucide/map";
   import IconMenu from "~icons/lucide/menu";
   import DonMobileNavigation from "./DonMobileNavigation.svelte";
 
@@ -22,18 +20,9 @@
       <span class="sr-only">Zurück zur Startseite</span>
     </a>
 
-    <a href="/notizen">
-      <IconNotebookText />
-      <span class="sr-only">Zu den Notizen</span>
-    </a>
-    <a href="/danksagung">
-      <IconHandshake />
-      <span class="sr-only">Zur Danksagung</span>
-    </a>
-
-    <a href="/dashboard">
-      <IconLayoutDashboard />
-      <span class="sr-only">Zum Dashboard</span>
+    <a href="/leitfaden">
+      <IconMap aria-hidden="true" />
+      <span class="sr-only">Zum Leitfaden</span>
     </a>
 
     <button

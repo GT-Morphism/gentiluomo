@@ -1,13 +1,12 @@
 <script lang="ts">
   import { page } from "$app/state";
 
-  import IconHome from "~icons/lucide/home";
+  import IconMap from "~icons/lucide/map";
   import IconChevronRight from "~icons/lucide/chevron-right";
   import IconSquareFunction from "~icons/lucide/square-function";
   import IconDumbbell from "~icons/lucide/dumbbell";
   import IconNetwork from "~icons/lucide/network";
   import IconFingerprint from "~icons/lucide/fingerprint";
-  import IconMap from "~icons/lucide/map";
 
   import DonDetails from "./DonDetails.svelte";
   import DonPathAwareLink from "./DonPathAwareLink.svelte";
@@ -16,7 +15,7 @@
 <nav data-component="page-navigation">
   <ul data-pagenavigation-child="navigation-list">
     <li>
-      <DonPathAwareLink href="/" label="Home" theme="secondary" Icon={IconHome} />
+      <DonPathAwareLink href="/leitfaden" label="Leitfaden" theme="secondary" Icon={IconMap} />
     </li>
 
     <li>
@@ -29,7 +28,7 @@
     </li>
 
     <li data-pagenavigation-child="navigation-list-details">
-      <DonDetails open={page.url.pathname.includes("kategorien")}>
+      <DonDetails open={page.url.pathname.includes("kategorien/")}>
         {#snippet summary()}
           <div data-pagenavigation-child="navigation-list-details-header">
             <IconChevronRight data-details-child="marker" />
@@ -38,15 +37,6 @@
         {/snippet}
 
         <ul data-pagenavigation-child="navigation-list-details-body">
-          <li>
-            <DonPathAwareLink
-              href="/kategorien"
-              label="Leitfaden"
-              theme="secondary"
-              Icon={IconMap}
-            />
-          </li>
-
           <li>
             <DonPathAwareLink
               href="/kategorien/bildung"
