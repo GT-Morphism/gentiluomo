@@ -44,21 +44,21 @@
   <DonPathAwareLink
     href="/notizen"
     label="Zu den Notizen"
-    config={["icon-only"]}
+    config={["with-icon-only", "with-icon-lg", "with-color", "with-visible-border"]}
     Icon={IconNotebookText}
   />
 
   <DonPathAwareLink
     href="/danksagung"
     label="Zur Danksagung"
-    config={["icon-only"]}
+    config={["with-icon-only", "with-icon-lg", "with-color", "with-visible-border"]}
     Icon={IconHandshake}
   />
 
   <DonPathAwareLink
     href="/dashboard"
     label="Zum Dashboard"
-    config={["icon-only"]}
+    config={["with-icon-only", "with-icon-lg", "with-color", "with-visible-border"]}
     Icon={IconLayoutDashboard}
   />
 </div>
