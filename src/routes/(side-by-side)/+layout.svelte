@@ -8,8 +8,10 @@
   <div data-sidebyside-child="sidebar">
     <DonPageNavigation />
   </div>
-  <main class="flow prose" data-sidebyside-child="content">
-    {@render children()}
+  <main data-sidebyside-child="content">
+    <div class="wrapper flow prose" data-max-width="prose">
+      {@render children()}
+    </div>
   </main>
 </div>
 

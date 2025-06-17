@@ -23,7 +23,7 @@
   }
 
   @supports (text-box: cap alphabetic) {
-    .prose :is(h2, h3, p, span, ul, ol, li, blockquote) {
+    .prose :is(section, h2, h3, p, span, ul, ol, li, blockquote) {
       --flow-space: 1.5lh;
 
       text-box: cap alphabetic;
