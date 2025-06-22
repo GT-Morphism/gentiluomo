@@ -9,7 +9,7 @@
   import IconBadgeCheck from "~icons/lucide/badge-check";
 
   import DonButton from "$lib/components/DonButton.svelte";
-  import DonCallout from "$lib/components/DonCallout.svelte";
+  import DonCollapsibleCallout from "$lib/components/DonCollapsibleCallout.svelte";
   import DonInput from "$lib/components/DonInput.svelte";
 
   const user = getUserState();
@@ -31,7 +31,7 @@
 
 <h1>Dein Bereich</h1>
 
-<DonCallout tldr="Über Deine lokale Daten">
+<DonCollapsibleCallout tldr="Über Deine lokale Daten">
   {#snippet body()}
     <p>
       Alle Daten, die Du hier vorfindest, werden lokal in Deinem Browser gespeichert; keine
@@ -66,7 +66,7 @@
       </li>
     </ul>
   {/snippet}
-</DonCallout>
+</DonCollapsibleCallout>
 
 <form
   class="flow"
