@@ -1,85 +1,71 @@
 <script lang="ts">
+  import type { Component, Snippet } from "svelte";
+  import IconNotedpadText from "~icons/lucide/notepad-text";
   import IconInfo from "~icons/lucide/info";
-  import IconChevronRight from "~icons/lucide/chevron-right";
-  import DonDetails from "./DonDetails.svelte";
-  import type { Snippet } from "svelte";
-
-  const id = crypto.randomUUID();
-  const labelId = `label-${id}`;
+  import IconNotebookPen from "~icons/lucide/notebook-pen";
 
   interface Props {
-    open?: boolean;
-    tldr?: string;
-    body: Snippet;
+    type: "tldr" | "info" | "note";
+    children: Snippet;
   }
 
-  const { open = false, tldr, body }: Props = $props();
+  const { type, children }: Props = $props();
+
+  const CALLOUT_TYPE_LABEL_MAP: Map<typeof type, { labelText: string; Icon: Component }> = new Map([
+    [
+      "tldr",
+      {
+        labelText: "In Kurz",
+        Icon: IconNotedpadText,
+      },
+    ],
+    [
+      "info",
+      {
+        labelText: "Info",
+        Icon: IconInfo,
+      },
+    ],
+    [
+      "note",
+      {
+        labelText: "Zum Mitschreiben",
+        Icon: IconNotebookPen,
+      },
+    ],
+  ]);
+
+  const labelText = CALLOUT_TYPE_LABEL_MAP.get(type)?.labelText;
+  const Icon = CALLOUT_TYPE_LABEL_MAP.get(type)?.Icon;
 </script>
 
-<aside data-component="callout" aria-labelledby={labelId}>
-  <DonDetails {open}>
-    {#snippet summary()}
-      <div class="prose" data-callout-child="header">
-        <div id={labelId} data-callout-child="label">
-          <IconInfo aria-hidden="true" />
-          <span>Info</span>
-        </div>
+<aside data-component="callout" data-callout-type={type}>
+  <div data-callout-child="label">
+    <Icon />
+    <span>{labelText}</span>
+  </div>
 
-        {#if tldr}
-          <span data-callout-child="tldr">{tldr}</span>
-        {/if}
-
-        <IconChevronRight aria-hidden="true" data-details-child="marker" />
-      </div>
-    {/snippet}
-
-    <div class="flow prose" data-callout-child="body">
-      {@render body()}
-    </div>
-  </DonDetails>
+  <p data-callout-child="body">
+    {@render children()}
+  </p>
 </aside>
 
 <style>
   @layer components {
     [data-component="callout"] {
-      --_spacing-inline: var(--spacing-s-m);
-      --_height-divider: var(--spacing-2xs-xs);
+      --_theme-color: var(--color-primary-800);
+      --_theme-color-highlight: var(--color-primary-500);
+      display: grid;
+      grid-template-rows: auto 1fr;
 
-      background-color: var(--color-primary-900);
-
-      border-radius: var(--border-radius-md);
-    }
-
-    [data-callout-child="header"] {
-      position: relative;
-
-      align-items: center;
-
-      column-gap: var(--spacing-2xs-xs);
-
-      &:has([data-callout-child="tldr"]) {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
+      &[data-callout-type="info"] {
+        --_theme-color: var(--color-secondary-800);
+        --_theme-color-highlight: var(--color-secondary-500);
       }
 
-      &:not(:has([data-callout-child="tldr"])) {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      border-radius: var(--border-radius-md);
-
-      padding-inline: var(--_spacing-inline);
-      padding-block-start: var(--spacing-xs-s);
-      padding-block-end: var(--spacing-s-m);
-
-      &::after {
-        content: "";
-        position: absolute;
-        inset-inline: 0;
-        inset-block-end: 0;
-        block-size: var(--_height-divider);
-        background-color: var(--color-primary-500);
+      &[data-callout-type="note"] {
+        --_theme-color: var(--color-tertiary-800);
+        --_theme-color-highlight: var(--color-tertiary-500);
       }
     }
 
@@ -88,21 +74,19 @@
       align-items: center;
       column-gap: var(--spacing-3xs-2xs);
 
-      font-size: var(--font-size-step-sm);
+      inline-size: fit-content;
 
-      background-color: var(--color-primary-900);
+      background-color: var(--_theme-color);
 
-      border: 1px solid var(--color-primary-500);
-      border-radius: var(--border-radius-md);
-
-      padding-block: var(--spacing-3xs);
-      padding-inline: var(--spacing-3xs-2xs);
+      padding: calc(var(--spacing-3xs-2xs) / 2);
     }
 
     [data-callout-child="body"] {
-      padding-inline: var(--_spacing-inline);
-      padding-block-start: var(--spacing-s-m);
-      padding-block-end: var(--spacing-xs-s);
+      border-inline-start: calc(var(--spacing-3xs-2xs) / 2) solid var(--_theme-color-highlight);
+
+      background-color: oklch(from var(--_theme-color) l c h / 0.25);
+
+      padding: var(--spacing-xs-s);
     }
   }
 </style>

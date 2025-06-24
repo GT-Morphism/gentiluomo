@@ -73,9 +73,11 @@
         translate: 0 100%;
 
         content: "";
-        inline-size: min(100%, 4rem);
+        inline-size: min(calc(4rem + var(--spacing-xs-s)), 100%);
         block-size: 0.5rem;
         background-color: var(--_theme-color-light);
+
+        transform: skew(-15deg);
       }
     }
   }
