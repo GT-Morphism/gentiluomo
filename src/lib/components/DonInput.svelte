@@ -2,7 +2,7 @@
   import type { HTMLInputAttributes } from "svelte/elements";
 
   interface Props extends HTMLInputAttributes {
-    ref?: HTMLInputElement;
+    ref?: HTMLInputElement | undefined;
   }
 
   let { ref = $bindable(), value = $bindable(), ...htmlInputAttributes }: Props = $props();

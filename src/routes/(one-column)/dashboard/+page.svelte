@@ -125,7 +125,7 @@
     <DonButton
       type="button"
       onclick={() => {
-        newUserName = RANDOM_NAMES[Math.floor(Math.random() * RANDOM_NAMES.length)];
+        newUserName = RANDOM_NAMES[Math.floor(Math.random() * RANDOM_NAMES.length)] as string;
       }}
       config="subtle"
     >
