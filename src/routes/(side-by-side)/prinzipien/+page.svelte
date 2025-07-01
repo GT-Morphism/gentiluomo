@@ -1,5 +1,7 @@
 <script lang="ts">
   import DonCallout from "$lib/components/DonCallout.svelte";
+
+  const { data } = $props();
 </script>
 
 <h1>Prinzipien</h1>
@@ -28,8 +30,26 @@
 </p>
 
 <h2>Intrapersonell oder: bezogen auf mich</h2>
+<ul class="flow">
+  {#each data.intraPrinciples as principle (principle.type + principle.slug)}
+    <li>
+      <a class="animated-underline" href="/prinzipien/{principle.type}-{principle.slug}"
+        >{principle.title}</a
+      >
+    </li>
+  {/each}
+</ul>
 
 <h2>Interpersonell oder: bezogen auf andere</h2>
+<ul class="flow">
+  {#each data.interPrinciples as principle (principle.type + principle.slug)}
+    <li>
+      <a class="animated-underline" href="/prinzipien/{principle.type}-{principle.slug}"
+        >{principle.title}</a
+      >
+    </li>
+  {/each}
+</ul>
 
 <style>
   h2 {
