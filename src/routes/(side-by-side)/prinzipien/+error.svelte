@@ -17,7 +17,7 @@
 
     <p>{principle.description}</p>
 
-    <a class="animated-underline" href="/prinzipien/{principle.type}-{principle.slug}"
+    <a class="animated-underline" href="/prinzipien/{principle.type}/{principle.slug}"
       >Mehr erfahren</a
     >
 

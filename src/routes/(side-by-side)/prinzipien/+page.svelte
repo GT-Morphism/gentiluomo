@@ -33,7 +33,7 @@
 <ul class="flow">
   {#each data.intraPrinciples as principle (principle.type + principle.slug)}
     <li>
-      <a class="animated-underline" href="/prinzipien/{principle.type}-{principle.slug}"
+      <a class="animated-underline" href="/prinzipien/{principle.type}/{principle.slug}"
         >{principle.title}</a
       >
     </li>
@@ -44,7 +44,7 @@
 <ul class="flow">
   {#each data.interPrinciples as principle (principle.type + principle.slug)}
     <li>
-      <a class="animated-underline" href="/prinzipien/{principle.type}-{principle.slug}"
+      <a class="animated-underline" href="/prinzipien/{principle.type}/{principle.slug}"
         >{principle.title}</a
       >
     </li>
