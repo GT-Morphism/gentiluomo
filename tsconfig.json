@@ -21,7 +21,21 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "erasableSyntaxOnly": true
-  }
+  },
+  "include": [
+    "./.svelte-kit/types/**/$types.d.ts",
+    "./.svelte-kit/ambient.d.ts",
+    "./.svelte-kit/non-ambient.d.ts",
+    "./vite.config.ts",
+    "./src/**/*.ts",
+    "./src/**/*.svelte",
+    "./tests/**/*.ts",
+    "./tests/**/*.svelte",
+    "./vitest-setup-client.ts",
+    "./playwright.config.ts",
+    "./e2e/**/*.ts"
+  ]
+
   // Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias
   // except $lib which is handled by https://svelte.dev/docs/kit/configuration#files
   //

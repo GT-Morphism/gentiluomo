@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  type ToastData = {
+  interface ToastData {
     title: string;
     description: string;
     Icon?: Component;
-  };
+  }
 
   const toaster = new Toaster<ToastData>();
 

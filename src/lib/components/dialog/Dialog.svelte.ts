@@ -13,8 +13,8 @@ export class Dialog {
 
   // TODO: Should this even be a method of the class? I am asking, since
   // `showDialog` is not referring to anything of the class `Dialog`.
-  showDialog(id: string) {
+  showDialog = (id: string) => {
     const dialog = document.getElementById(id) as HTMLDialogElement;
     dialog.showModal();
-  }
+  };
 }

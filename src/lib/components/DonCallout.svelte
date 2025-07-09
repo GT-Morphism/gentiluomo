@@ -11,7 +11,7 @@
 
   const { type, children }: Props = $props();
 
-  const CALLOUT_TYPE_LABEL_MAP: Map<typeof type, { labelText: string; Icon: Component }> = new Map([
+  const CALLOUT_TYPE_LABEL_MAP = new Map<typeof type, { labelText: string; Icon: Component }>([
     [
       "tldr",
       {

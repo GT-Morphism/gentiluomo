@@ -6,7 +6,7 @@
     href: string;
     label: string;
     theme?: "primary" | "secondary" | "tertiary";
-    config?: Array<
+    config?: (
       | "with-icon-only"
       | "with-visible-label"
       | "with-icon-lg"
@@ -15,7 +15,7 @@
       | "with-animated-shadow"
       | "with-visible-border"
       | "with-small-font"
-    >;
+    )[];
     Icon?: Component;
   }
 

@@ -2,7 +2,7 @@ import { json, type RequestHandler } from "@sveltejs/kit";
 import type { PrincipleMetadata } from "~content/content.types";
 
 // TODO: Maybe there is a possibility to generate a OpenAPI spec from such endpoints.
-async function getPrinciplesMetadata() {
+function getPrinciplesMetadata() {
   let principlesMetadata: PrincipleMetadata[] = [];
 
   const paths = import.meta.glob("/src/content/prinzipien/**/*.md", { eager: true });
@@ -25,7 +25,7 @@ async function getPrinciplesMetadata() {
   return principlesMetadata;
 }
 
-export const GET: RequestHandler = async () => {
-  const principlesMetadata = await getPrinciplesMetadata();
+export const GET: RequestHandler = () => {
+  const principlesMetadata = getPrinciplesMetadata();
   return json(principlesMetadata);
 };
