@@ -3,6 +3,7 @@
 * - https://www.joshwcomeau.com/css/custom-css-reset/
 * - https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
 * - https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/preflight.css
+* - https://piccalil.li/blog/a-more-modern-css-reset/
 */
 
 @layer reset {
@@ -43,6 +44,7 @@
 
   :where(p, h1, h2, h3) {
     overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   :where(p, li) {
