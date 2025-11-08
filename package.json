@@ -42,9 +42,9 @@
     "vite": "^7.1.5"
   },
   "engines": {
-    "node": "22.20.0"
+    "node": "24.11.0"
   },
-  "packageManager": "pnpm@10.18.2",
+  "packageManager": "pnpm@10.20.0",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
